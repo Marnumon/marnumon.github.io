@@ -3,7 +3,8 @@
   <entry>
     <title>AimAssist</title>
     <url>/2024/11/13/AimAssist/</url>
-    <content><![CDATA[<h1 id="基于carpet-1-20的提前辅助瞄准"><a href="#基于carpet-1-20的提前辅助瞄准" class="headerlink" title="基于carpet 1.20的提前辅助瞄准"></a>基于carpet 1.20的提前辅助瞄准</h1><p>适用版本：1.20.x</p>
+    <content><![CDATA[<h1 id="基于carpet-1-20的提前辅助瞄准"><a href="#基于carpet-1-20的提前辅助瞄准" class="headerlink" title="基于carpet 1.20的提前辅助瞄准"></a>基于carpet 1.20的提前辅助瞄准</h1><p><del>咕了</del></p>
+<p>适用版本：1.20.x</p>
 <span id="more"></span>
 
 <h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── helpers</span><br><span class="line">│   ├── BallisticCalculator // 弹道计算</span><br><span class="line">│   └── generateEmissionAngle(Player)</span><br><span class="line">└── mixins</span><br><span class="line">    ├── BowItem_aimAssistMixin  // 捕获目标</span><br><span class="line">    ├── getTarget(Level, Player, InteractionHand, CallbackInfoReturnable&lt;InteractionResultHolder&lt;ItemStack&gt;&gt;)</span><br><span class="line">    ├── LivingEntity_aimAssistMixin  // 准心控制</span><br><span class="line">    └── directionControl(CallbackInfo) // tick级物品栏检测</span><br></pre></td></tr></table></figure>
