@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2025/06/30/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>AimAssist</title>
     <url>/2024/11/13/AimAssist/</url>
     <content><![CDATA[<h1 id="基于carpet-1-20的提前辅助瞄准"><a href="#基于carpet-1-20的提前辅助瞄准" class="headerlink" title="基于carpet 1.20的提前辅助瞄准"></a>基于carpet 1.20的提前辅助瞄准</h1><p><del>咕了</del></p>
@@ -82,7 +62,10 @@
   <entry>
     <title>八股文笔记</title>
     <url>/2025/06/30/%E5%85%AB%E8%82%A1%E6%96%87%E7%AC%94%E8%AE%B0%20#1%20Java%20%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="八股文笔记-1-Java-基础"><a href="#八股文笔记-1-Java-基础" class="headerlink" title="八股文笔记 #1 Java 基础"></a>八股文笔记 #1 Java 基础</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="说一下-Java-的特点"><a href="#说一下-Java-的特点" class="headerlink" title="说一下 Java 的特点"></a>说一下 Java 的特点</h3><ul>
+    <content><![CDATA[<h1 id="八股文笔记-1-Java-基础"><a href="#八股文笔记-1-Java-基础" class="headerlink" title="八股文笔记 #1 Java 基础"></a>八股文笔记 #1 Java 基础</h1><p><del>再好的项目，也敌不过 HashMap 的 resize 过程没讲清楚</del></p>
+<span id="more"></span>
+
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="说一下-Java-的特点"><a href="#说一下-Java-的特点" class="headerlink" title="说一下 Java 的特点"></a>说一下 Java 的特点</h3><ul>
 <li><strong>平台无关性</strong>：Java 的 “编写一次，运行无处不在” 哲学是其最大的特点之一。Java 编译器将源代码编译成字节码，该字节码可以在任何安装了 JVM 的系统上运行</li>
 <li><strong>面向对象</strong>：Java 是一门严格的面向对象的编程语言，几乎一切都是对象。OOP 特性使得代码更易于维护和复用，包括类、对象、继承、多态、抽象和封装</li>
 <li><strong>内存管理</strong>：Java 有自己的垃圾回收机制，自动管理内存和回收不再使用的对象</li>
