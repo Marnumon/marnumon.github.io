@@ -23,10 +23,10 @@
 
 
 
-<link rel="canonical" href="https://marnumon.github.io/2025/07/01/boilerplate-answers-2-java-collection/">
+<link rel="canonical" href="https://marnumon.github.io/2025/07/02/boilerplate-answers-2-java-collection/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://marnumon.github.io/2025/07/01/boilerplate-answers-2-java-collection/","path":"2025/07/01/boilerplate-answers-2-java-collection/","title":"八股文笔记 #2 Java 集合"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://marnumon.github.io/2025/07/02/boilerplate-answers-2-java-collection/","path":"2025/07/02/boilerplate-answers-2-java-collection/","title":"八股文笔记 #2 Java 集合"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>八股文笔记 #2 Java 集合 | marnu's blog</title>
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">数组与集合的区别是？用过哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4-Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%9F"><span class="nav-text">说说 Java 中的集合？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-%E4%B8%AD%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">Java 中线程安全的集合有什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-%E5%92%8C-Collections-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Collection 和 Collections 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E9%9B%86%E5%90%88%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">遍历集合的方式有哪些？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List"><span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E5%B8%B8%E8%A7%81%E7%9A%84-list-%E9%9B%86%E5%90%88%EF%BC%9F"><span class="nav-text">说说常见的 list 集合？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B2%E4%B8%80%E4%B8%8B-List-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%EF%BC%8C%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-text">讲一下 List 的几种实现，几种实现有什么不同？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-%E5%8F%AF%E4%BB%A5%E4%B8%80%E8%BE%B9%E9%81%8D%E5%8E%86%E4%B8%80%E8%BE%B9%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E5%90%97%EF%BC%9F"><span class="nav-text">List 可以一边遍历一边修改元素吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E7%9A%84%E5%85%83%E7%B4%A0%EF%BC%9F"><span class="nav-text">List 如何快速删除指定下标的元素？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%90%97%EF%BC%9F%E6%8A%8A-Arraylist-%E5%8F%98%E6%88%90%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">ArrayList 线程安全吗？把 Arraylist 变成线程安全的方式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-ArrayList-%E4%B8%8D%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84"><span class="nav-text">为什么 ArrayList 不是线程安全的?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-%E5%92%8C-LinkedList-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">ArrayList 和 LinkedList 的应用场景分别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E4%B8%8B-ArrayList-%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="nav-text">说一下 ArrayList 的扩容机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CopyonWriteArraylist-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%EF%BC%9F"><span class="nav-text">CopyonWriteArraylist 是如何实现线程安全的？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E5%B8%B8%E8%A7%81%E7%9A%84-Map-%E9%9B%86%E5%90%88%EF%BC%9F"><span class="nav-text">说说常见的 Map 集合？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9-Map-%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E9%81%8D%E5%8E%86%EF%BC%9F"><span class="nav-text">如何对 Map 进行快速遍历？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-HashMap%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="nav-text">介绍一下 HashMap实现原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">哈希冲突的解决方式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-text">HashMap 是线程安全的吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B2%E4%B8%80%E4%B8%8B-HashMap-%E7%9A%84-put-%E8%BF%87%E7%A8%8B"><span class="nav-text">讲一下 HashMap 的 put 过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E7%9A%84-put-key-val-%E5%92%8C-get-key-%E8%BF%87%E7%A8%8B"><span class="nav-text">HashMap 的 put(key, val) 和 get(key) 过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E8%B0%83%E7%94%A8-get-%E6%96%B9%E6%B3%95%E4%B8%80%E5%AE%9A%E5%AE%89%E5%85%A8%E5%90%97%EF%BC%9F"><span class="nav-text">HashMap 调用 get() 方法一定安全吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-String-%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BAHashMap-%E7%9A%84-key%EF%BC%9F"><span class="nav-text">为什么 String 适合作为HashMap 的 key？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88HashMap%E8%A6%81%E7%94%A8%E7%BA%A2%E9%BB%91%E6%A0%91%E8%80%8C%E4%B8%8D%E6%98%AF%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9F"><span class="nav-text">为什么HashMap要用红黑树而不是平衡二叉树？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E7%9A%84-key-%E5%8F%AF%E4%BB%A5%E4%B8%BA-null-%E5%90%97%EF%BC%9F"><span class="nav-text">HashMap 的 key 可以为 null 吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99-HashMap-%E7%9A%84-equals-%E5%92%8C-hashCode-%E6%96%B9%E6%B3%95%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">重写 HashMap 的 equals() 和 hashCode() 方法需要注意什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-HashMap-%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="nav-text">介绍一下 HashMap 的扩容机制</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">数组与集合的区别是？用过哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4-Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%9F"><span class="nav-text">说说 Java 中的集合？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-%E4%B8%AD%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">Java 中线程安全的集合有什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-%E5%92%8C-Collections-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Collection 和 Collections 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E9%9B%86%E5%90%88%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">遍历集合的方式有哪些？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List"><span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E5%B8%B8%E8%A7%81%E7%9A%84-list-%E9%9B%86%E5%90%88%EF%BC%9F"><span class="nav-text">说说常见的 list 集合？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B2%E4%B8%80%E4%B8%8B-List-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%EF%BC%8C%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-text">讲一下 List 的几种实现，几种实现有什么不同？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-%E5%8F%AF%E4%BB%A5%E4%B8%80%E8%BE%B9%E9%81%8D%E5%8E%86%E4%B8%80%E8%BE%B9%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E5%90%97%EF%BC%9F"><span class="nav-text">List 可以一边遍历一边修改元素吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E4%B8%8B%E6%A0%87%E7%9A%84%E5%85%83%E7%B4%A0%EF%BC%9F"><span class="nav-text">List 如何快速删除指定下标的元素？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%90%97%EF%BC%9F%E6%8A%8A-Arraylist-%E5%8F%98%E6%88%90%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">ArrayList 线程安全吗？把 Arraylist 变成线程安全的方式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-ArrayList-%E4%B8%8D%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84"><span class="nav-text">为什么 ArrayList 不是线程安全的?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-%E5%92%8C-LinkedList-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">ArrayList 和 LinkedList 的应用场景分别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E4%B8%8B-ArrayList-%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="nav-text">说一下 ArrayList 的扩容机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CopyonWriteArraylist-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%EF%BC%9F"><span class="nav-text">CopyonWriteArraylist 是如何实现线程安全的？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E5%B8%B8%E8%A7%81%E7%9A%84-Map-%E9%9B%86%E5%90%88%EF%BC%9F"><span class="nav-text">说说常见的 Map 集合？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9-Map-%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E9%81%8D%E5%8E%86%EF%BC%9F"><span class="nav-text">如何对 Map 进行快速遍历？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-HashMap%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="nav-text">介绍一下 HashMap实现原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">哈希冲突的解决方式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-text">HashMap 是线程安全的吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E7%9A%84%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">HashMap 的常见方法有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B2%E4%B8%80%E4%B8%8B-HashMap-%E7%9A%84-put-%E8%BF%87%E7%A8%8B"><span class="nav-text">讲一下 HashMap 的 put 过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E7%9A%84-put-key-val-%E5%92%8C-get-key-%E8%BF%87%E7%A8%8B"><span class="nav-text">HashMap 的 put(key, val) 和 get(key) 过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E8%B0%83%E7%94%A8-get-%E6%96%B9%E6%B3%95%E4%B8%80%E5%AE%9A%E5%AE%89%E5%85%A8%E5%90%97%EF%BC%9F"><span class="nav-text">HashMap 调用 get() 方法一定安全吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-String-%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BAHashMap-%E7%9A%84-key%EF%BC%9F"><span class="nav-text">为什么 String 适合作为HashMap 的 key？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88HashMap%E8%A6%81%E7%94%A8%E7%BA%A2%E9%BB%91%E6%A0%91%E8%80%8C%E4%B8%8D%E6%98%AF%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9F"><span class="nav-text">为什么HashMap要用红黑树而不是平衡二叉树？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-%E7%9A%84-key-%E5%8F%AF%E4%BB%A5%E4%B8%BA-null-%E5%90%97%EF%BC%9F"><span class="nav-text">HashMap 的 key 可以为 null 吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99-HashMap-%E7%9A%84-equals-%E5%92%8C-hashCode-%E6%96%B9%E6%B3%95%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">重写 HashMap 的 equals() 和 hashCode() 方法需要注意什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-HashMap-%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="nav-text">介绍一下 HashMap 的扩容机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-HashMap-%E7%9A%84%E5%AE%B9%E9%87%8F%E6%98%AF-2-%E7%9A%84%E5%B9%82%E6%AC%A1%E6%96%B9%EF%BC%9F"><span class="nav-text">为什么 HashMap 的容量是 2 的幂次方？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%80-HashMap-%E5%AD%98%E5%85%A5-20-%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%8C%E4%BC%9A%E6%89%A9%E5%AE%B9%E5%87%A0%E6%AC%A1%EF%BC%9F"><span class="nav-text">往 HashMap 存入 20 个元素，会扩容几次？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4-HashMap-%E7%9A%84%E8%B4%9F%E8%BD%BD%E5%9B%A0%E5%AD%90"><span class="nav-text">说说 HashMap 的负载因子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConcurrentHashMap-%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-text">ConcurrentHashMap 怎么实现的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%AE%B5%E9%94%81%E6%98%AF%E5%A6%82%E4%BD%95%E5%8A%A0%E9%94%81%E7%9A%84%EF%BC%9F"><span class="nav-text">分段锁是如何加锁的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%AE%B5%E9%94%81%E6%98%AF%E5%8F%AF%E9%87%8D%E5%85%A5%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-text">分段锁是可重入的吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E7%94%A8%E4%BA%86-synchronized%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E7%94%A8-CAS-%E5%91%A2%EF%BC%9F"><span class="nav-text">已经用了 synchronized，为什么还要用 CAS 呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConcurrentHashMap%E7%94%A8%E4%BA%86%E6%82%B2%E8%A7%82%E9%94%81%E8%BF%98%E6%98%AF%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-text">ConcurrentHashMap用了悲观锁还是乐观锁?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashTable-%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">HashTable 底层实现原理是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashTable-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-text">HashTable 线程安全是怎么实现的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashTable-%E5%92%8C-ConcurrentHashMap-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">HashTable 和 ConcurrentHashMap 有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap%E3%80%81HashTable-%E5%92%8C-ConcurrentHashMap-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">HashMap、HashTable 和 ConcurrentHashMap 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set"><span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0-key-%E6%97%A0%E9%87%8D%E5%A4%8D%E7%9A%84%EF%BC%9F"><span class="nav-text">Set 集合有什么特点？如何实现 key 无重复的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E7%9A%84-Set-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%AE%B0%E5%BD%95%E6%8F%92%E5%85%A5%E9%A1%BA%E5%BA%8F%E7%9A%84%E9%9B%86%E5%90%88%E6%98%AF%E5%93%AA%E7%A7%8D%EF%BC%9F"><span class="nav-text">有序的 Set 是什么？记录插入顺序的集合是哪种？</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,7 +225,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://marnumon.github.io/2025/07/01/boilerplate-answers-2-java-collection/">
+    <link itemprop="mainEntityOfPage" href="https://marnumon.github.io/2025/07/02/boilerplate-answers-2-java-collection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -254,7 +254,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-07-01 10:15:26" itemprop="dateCreated datePublished" datetime="2025-07-01T10:15:26+00:00">2025-07-01</time>
+      <time title="创建时间：2025-07-02 06:09:02" itemprop="dateCreated datePublished" datetime="2025-07-02T06:09:02+00:00">2025-07-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -280,14 +280,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9k</span>
+      <span>13k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>33 分钟</span>
+      <span>48 分钟</span>
     </span>
 </div>
 
@@ -309,25 +309,25 @@
 <p>我用过的一些 Java 集合类：</p>
 <ul>
 <li><strong><code>List</code> 系列（有序、可重复）</strong>：<ul>
-<li><strong><code>ArrayList</code>：</strong> 动态数组，随机访问快，适合读多写少场景</li>
-<li><strong><code>LinkedList</code>：</strong> 双向链表，插入&#x2F;删除快，适合频繁操作头尾</li>
+<li><strong><code>ArrayList</code></strong>： 动态数组，随机访问快，适合读多写少场景</li>
+<li><strong><code>LinkedList</code></strong>： 双向链表，插入&#x2F;删除快，适合频繁操作头尾</li>
 </ul>
 </li>
 <li><strong><code>Set</code> 系列（无序&#x2F;有序、不可重复）</strong>：<ul>
-<li><strong><code>HashSet</code>：</strong> 基于 <code>HashMap</code> 实现的 <code>Set</code> 集合，用于存储唯一元素</li>
+<li><strong><code>HashSet</code></strong>： 基于 <code>HashMap</code> 实现的 <code>Set</code> 集合，用于存储唯一元素</li>
 <li><strong><code>LinkedHashSet</code></strong>：有插入顺序的 <code>HashSet</code></li>
 <li><strong><code>TreeSet</code></strong>：基于红黑树，元素自动排序（按自然顺序或比较器）</li>
 </ul>
 </li>
 <li><strong><code>Map</code> 系列（键值对）</strong>：<ul>
-<li><strong><code>HashMap</code>：</strong> 基于哈希表的 <code>Map</code> 实现，存储键值对，通过键快速查找值</li>
+<li><strong><code>HashMap</code></strong>： 基于哈希表的 <code>Map</code> 实现，存储键值对，通过键快速查找值</li>
 <li><strong><code>ConcurrentHashMap</code></strong>：线程安全的高性能并发 <code>Map</code></li>
-<li><strong><code>TreeMap</code>：</strong> 基于红黑树实现的有序 <code>Map</code> 集合，可以按照键的顺序进行排序</li>
-<li><strong><code>LinkedHashMap</code>：</strong> 基于哈希表和双向链表实现的 <code>Map</code> 集合，保持插入顺序或访问顺序</li>
+<li><strong><code>TreeMap</code></strong>： 基于红黑树实现的有序 <code>Map</code> 集合，可以按照键的顺序进行排序</li>
+<li><strong><code>LinkedHashMap</code></strong>： 基于哈希表和双向链表实现的 <code>Map</code> 集合，保持插入顺序或访问顺序</li>
 </ul>
 </li>
 <li><strong><code>Queue</code> 系列（队列&#x2F;优先队列）</strong>：<ul>
-<li><strong><code>PriorityQueue</code>：</strong> 优先队列，可以按照比较器或元素的自然顺序进行排序</li>
+<li><strong><code>PriorityQueue</code></strong>： 优先队列，可以按照比较器或元素的自然顺序进行排序</li>
 <li><strong><code>ArrayDeque</code></strong>：双端队列，可用于栈或队列结构</li>
 </ul>
 </li>
@@ -433,19 +433,19 @@
 <li><p><strong>普通 for 循环</strong>：可以使用带有索引的普通 for 循环来遍历 <code>List</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">element</span> <span class="operator">=</span> list.get(i);</span><br><span class="line">    System.out.println(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>增强 for 循环（for-each 循环）：</strong> 用于循环访问数组或集合中的元素</p>
+<li><p><strong>增强 for 循环（for-each 循环）</strong>： 用于循环访问数组或集合中的元素</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String element : list) &#123;</span><br><span class="line">    System.out.println(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Iterator 迭代器：</strong> 可以使用迭代器来遍历集合，特别适用于需要删除元素的情况</p>
+<li><p><strong>Iterator 迭代器</strong>： 可以使用迭代器来遍历集合，特别适用于需要删除元素的情况</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">element</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">    System.out.println(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>ListIterator 列表迭代器：</strong> <code>ListIterator</code> 是迭代器的子类，可以双向访问列表并在迭代过程中修改元素</p>
+<li><p><strong>ListIterator 列表迭代器</strong>： <code>ListIterator</code> 是迭代器的子类，可以双向访问列表并在迭代过程中修改元素</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ListIterator&lt;String&gt; listIterator = list.listIterator();</span><br><span class="line"><span class="keyword">while</span> (listIterator.hasNext()) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">element</span> <span class="operator">=</span> listIterator.next();</span><br><span class="line">    System.out.println(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>使用 <code>forEach()</code> 方法：</strong> Java 8 引入了 <code>forEach()</code> 方法，可以对集合进行快速遍历</p>
+<li><p><strong>使用 <code>forEach()</code> 方法</strong>： Java 8 引入了 <code>forEach()</code> 方法，可以对集合进行快速遍历</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.forEach(element -&gt; System.out.println(element));</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Stream API：</strong> Java 8 的 Stream API 提供了丰富的功能，可以对集合进行函数式操作，如过滤、映射等</p>
+<li><p><strong>Stream API</strong>： Java 8 的 Stream API 提供了丰富的功能，可以对集合进行函数式操作，如过滤、映射等</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().forEach(element -&gt; System.out.println(element));</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><h2 id="说说常见的-list-集合？"><a href="#说说常见的-list-集合？" class="headerlink" title="说说常见的 list 集合？"></a>说说常见的 list 集合？</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1737438845596-760eb59b-c34c-441c-bea7-5b4eb1da4db4.png" alt="List 集合"></p>
@@ -461,7 +461,7 @@
 <li><p><code>CopyOnWriteArrayList</code>：一种<strong>并发容器类</strong>，写操作（如添加、删除）时会复制一份底层数组，并在新数组上修改，写完后再替换旧数组；读操作无需加锁，始终在旧数组上执行，实现了<strong>读写分离</strong>，大幅提升读性能。适用于<strong>读多写少</strong>的并发场景，如事件监听器列表、缓存快照等。缺点是写操作开销较大，且不适合大数据量频繁写入的场景</p>
 </li>
 </ul>
-<h2 id="讲一下-List-的几种实现，几种实现有什么不同？"><a href="#讲一下-List-的几种实现，几种实现有什么不同？" class="headerlink" title="讲一下 List 的几种实现，几种实现有什么不同？"></a>讲一下 List 的几种实现，几种实现有什么不同？</h2><p><code>ArrayList</code>、<code>Vector</code>、<code>LinkedList</code>，概念如上。</p>
+<h2 id="讲一下-List-的几种实现，几种实现有什么不同？"><a href="#讲一下-List-的几种实现，几种实现有什么不同？" class="headerlink" title="讲一下 List 的几种实现，几种实现有什么不同？"></a>讲一下 List 的几种实现，几种实现有什么不同？</h2><p><code>ArrayList</code>、<code>Vector</code>、<code>LinkedList</code>，概念如上</p>
 <p><code>ArrayList</code> 和 <code>Vector</code> 作为动态数组，因为底层是数组，支持<strong>快速随机访问</strong>（时间复杂度 O(1)），插入和删除操作（特别是在中间位置）较慢，需移动大量元素（时间复杂度 O(n)）</p>
 <p>而 <code>LinkedList</code> 插入和删除操作性能较好，尤其是在首尾位置添加&#x2F;删除元素时（O(1)），不支持高效的随机访问（访问第 n 个元素需从头或尾遍历，时间复杂度 O(n)）</p>
 <h2 id="List-可以一边遍历一边修改元素吗？"><a href="#List-可以一边遍历一边修改元素吗？" class="headerlink" title="List 可以一边遍历一边修改元素吗？"></a>List 可以一边遍历一边修改元素吗？</h2><ul>
@@ -537,7 +537,7 @@
 </li>
 </ul>
 <p>扩容过程中涉及到<strong>数组复制和内存重新分配</strong>，是一个相对开销较大的操作。因此，在预计会添加大量元素的场景下，建议在构造 <code>ArrayList</code> 时指定初始容量，以减少扩容次数，提高性能</p>
-<h2 id="CopyonWriteArraylist-是如何实现线程安全的？"><a href="#CopyonWriteArraylist-是如何实现线程安全的？" class="headerlink" title="CopyonWriteArraylist 是如何实现线程安全的？"></a>CopyonWriteArraylist 是如何实现线程安全的？</h2><p><code>CopyOnWriteArrayList</code> 是一种<strong>线程安全</strong>的列表实现，其核心思想是：<strong>写时复制</strong>（Copy-On-Write）。它的底层通过一个被 <code>volatile</code> 修饰的数组来保存数据，并结合 <code>ReentrantLock</code> 实现写操作的互斥，确保线程安全</p>
+<h2 id="CopyonWriteArraylist-是如何实现线程安全的？"><a href="#CopyonWriteArraylist-是如何实现线程安全的？" class="headerlink" title="CopyonWriteArraylist 是如何实现线程安全的？"></a>CopyonWriteArraylist 是如何实现线程安全的？</h2><p><code>CopyOnWriteArrayList</code> 是一种<strong>线程安全</strong>的列表实现，其核心思想是**：写时复制**（Copy-On-Write）。它的底层通过一个被 <code>volatile</code> 修饰的数组来保存数据，并结合 <code>ReentrantLock</code> 实现写操作的互斥，确保线程安全</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E e)</span> &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">ReentrantLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="built_in">this</span>.lock;</span><br><span class="line">    lock.lock(); <span class="comment">// 加锁，保证写操作互斥</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Object[] elements = getArray();               <span class="comment">// 获取当前数组</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> elements.length;                    <span class="comment">// 原数组长度</span></span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + <span class="number">1</span>); <span class="comment">// 创建新数组</span></span><br><span class="line">        newElements[len] = e;                         <span class="comment">// 添加新元素</span></span><br><span class="line">        setArray(newElements);                        <span class="comment">// 替换原数组引用</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock(); <span class="comment">// 释放锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在执行写入操作时，首先获取当前的底层数组，然后创建一个长度为原数组长度加一的新数组，并将旧数组中的所有元素复制到新数组中。接着，将待添加的新元素放置到新数组的末尾位置。最后，将内部数组的引用更新为这个新数组。整个写入过程在加锁的保护下进行，确保在并发环境中写操作的互斥性和数据的一致性</p>
@@ -585,7 +585,7 @@
 <li><strong>再哈希法（Rehashing）</strong>：当发生冲突时，使用另一个哈希函数再次计算键的哈希值，直到找到一个空槽来存储键值对</li>
 <li><strong>哈希桶扩容</strong>：当哈希冲突过多时，可以动态地扩大哈希桶的数量，重新分配键值对，以减少冲突的概率</li>
 </ul>
-<h2 id="HashMap-是线程安全的吗？"><a href="#HashMap-是线程安全的吗？" class="headerlink" title="HashMap 是线程安全的吗？"></a>HashMap 是线程安全的吗？</h2><p>hashmap不是线程安全的，hashmap在多线程会存在下面的问题：</p>
+<h2 id="HashMap-是线程安全的吗？"><a href="#HashMap-是线程安全的吗？" class="headerlink" title="HashMap 是线程安全的吗？"></a>HashMap 是线程安全的吗？</h2><p><code>HashMap</code> 不是线程安全的，<code>HashMap</code> 在多线程会存在下面的问题：</p>
 <ul>
 <li>JDK 1.7 的 <code>HashMap</code> 采用<strong>数组 + 链表</strong>的数据结构，多线程背景下，在数组扩容的时候，有可能导致环形链表的出现，形成死循环</li>
 <li>JDK 1.8 的 <code>HashMap</code> 采用<strong>数组 + 链表 + 红黑树</strong>的数据结构，优化了 1.7 中数组扩容的方案，使用尾插法插入元素，在扩容时会保持链表元素原本的顺序，不会出现环形链表的问题。但是多线程同时执行 <code>put()</code> 方法，如果计算出来的索引位置是相同的，那会造成前一个 key 被后一个 key 覆盖，从而导致元素的丢失</li>
@@ -594,6 +594,14 @@
 <ul>
 <li>多线程环境可以使用 <code>Collections.synchronizedMap</code> 同步加锁的方式，还可以使用 <code>HashTable</code>，但是同步的方式显然性能不达标，而 <code>ConcurrentHashMap </code> 更适合高并发场景使用</li>
 <li><code>ConcurrentHashMap</code> 在 JDK 1.7 和 1.8 的版本改动比较大，1.7 使用 <strong>Segment + HashEntry</strong> 分段锁的方式实现，1.8 则抛弃了 Segment，改为使用 <strong>CAS + synchronized + Node</strong> 实现，同样也加入了红黑树，避免链表过长导致性能的问题</li>
+</ul>
+<h2 id="HashMap-的常见方法有哪些？"><a href="#HashMap-的常见方法有哪些？" class="headerlink" title="HashMap 的常见方法有哪些？"></a>HashMap 的常见方法有哪些？</h2><p><code>HashMap</code> 常用于存储和快速查找 <strong>键值对</strong> 数据。常见方法包括：</p>
+<ul>
+<li><code>put(K key, V value)</code>：添加或更新键值对</li>
+<li><code>get(Object key)</code>：根据键获取对应的值</li>
+<li><code>containsKey(Object key)</code>：判断某个键是否存在</li>
+<li><code>remove(Object key)</code>：移除指定键的键值对</li>
+<li><code>keySet()</code>、<code>values()</code>、<code>entrySet()</code>：遍历键、值或整个映射项</li>
 </ul>
 <h2 id="讲一下-HashMap-的-put-过程"><a href="#讲一下-HashMap-的-put-过程" class="headerlink" title="讲一下 HashMap 的 put 过程"></a>讲一下 HashMap 的 put 过程</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1720684054342-1e3cb2a9-532e-40b8-b5cf-0043811391dc.png" alt="HashMap 的 put 过程"></p>
 <p>当调用 <code>put(key, value)</code> 向 <code>HashMap</code> 添加键值对时，会按以下步骤执行：</p>
@@ -669,7 +677,7 @@
 <li>如果 <code>o1.equals(o2)</code> 为 <code>true</code>，那么 <code>o1.hashCode() == o2.hashCode()</code> 必须也为 <code>true</code></li>
 <li>如果 <code>o1.hashCode() == o2.hashCode()</code>，并不要求 <code>o1.equals(o2)</code> 一定为 <code>true</code></li>
 </ul>
-<h2 id="介绍一下-HashMap-的扩容机制"><a href="#介绍一下-HashMap-的扩容机制" class="headerlink" title="介绍一下 HashMap 的扩容机制"></a>介绍一下 HashMap 的扩容机制</h2><p>HashMap 的默认负载因子是 <strong>0.75</strong>，也就是说，当哈希表中元素数量超过总容量的 75% 时，就会触发扩容操作。扩容主要包括两个步骤：</p>
+<h2 id="介绍一下-HashMap-的扩容机制"><a href="#介绍一下-HashMap-的扩容机制" class="headerlink" title="介绍一下 HashMap 的扩容机制"></a>介绍一下 HashMap 的扩容机制</h2><p><code>HashMap</code> 的默认负载因子是 <strong>0.75</strong>，也就是说，当哈希表中元素数量超过总容量的 75% 时，就会触发扩容操作。扩容主要包括两个步骤：</p>
 <ol>
 <li><strong>扩展数组容量为原来的 2 倍</strong></li>
 <li><strong>将旧数组中的元素重新映射到新数组中（即重新分配位置）</strong></li>
@@ -677,11 +685,227 @@
 <p>因为 <code>HashMap</code> 使用的是 <strong>2 次幂</strong>的扩展，所以，元素在新数组中的位置，要么与原位置相同，要么是在原位置再移动 2 次幂</p>
 <p>例如，从 16 扩展为 32 时，具体的变化如下所示：</p>
 <p><img src="https://cdn.xiaolincoding.com//picgo/1713514753772-9467a399-6b18-4a47-89d4-957adcc53cc0.webp" alt="img"></p>
-<p>在计算桶索引时，HashMap 使用 <code>(n - 1) &amp; hash</code> 来定位元素。扩容时，数组长度 <code>n</code> 变为原来的两倍，n - 1 的二进制表示会在高位多出一个 1，因此新的索引就会发生这样的变化：</p>
+<p>在计算桶索引时，<code>HashMap</code> 使用 <code>(n - 1) &amp; hash</code> 来定位元素。扩容时，数组长度 <code>n</code> 变为原来的两倍，n - 1 的二进制表示会在高位多出一个 1，因此新的索引就会发生这样的变化：</p>
 <p><img src="https://cdn.xiaolincoding.com//picgo/1713514753786-cdca10bf-6eda-47f9-9bbe-0cc3beb67d76.webp" alt="img"></p>
 <p>因此我们只需观察原哈希值中的这个新 bit：如果该 bit 是 0，元素在新数组中的位置不变；如果该 bit 是 1，元素的新位置 &#x3D; 原位置 + oldCap</p>
 <p><img src="https://cdn.xiaolincoding.com//picgo/1713514753885-d1529537-322c-49b1-beec-5d9953da5150.webp" alt="img"></p>
 <p>这意味着<strong>不需要重新计算 hash 值</strong>，只需简单地判断一个 bit 位即可完成重新分配，极大提升了扩容效率。同时，由于新增的 bit 是 0 还是 1 可以认为是随机的，<strong>原先冲突的元素更均匀地分布到了新的桶中</strong>，从而提升了查找性能</p>
+<h2 id="为什么-HashMap-的容量是-2-的幂次方？"><a href="#为什么-HashMap-的容量是-2-的幂次方？" class="headerlink" title="为什么 HashMap 的容量是 2 的幂次方？"></a>为什么 HashMap 的容量是 2 的幂次方？</h2><p>在 JDK 1.7 中，<code>HashMap</code> 扩容时，会遍历旧数组中的每个元素，并根据它们的 hash 值重新计算在新数组中的位置。这些元素通常以链表形式存储。当链表中的元素被转移到新数组时，会根据新数组容量重新计算索引位置。由于遍历是从链表头节点开始，重新插入时顺序发生变化，原本在尾部的元素可能被移到新链表的头部</p>
+<p>到了 JDK 1.8，<code>HashMap</code> 的扩容过程做了优化，避免了重新计算完整的 hash 值。扩容时数组长度总是原来的两倍（即左移一位），因此可以通过 <strong>hash 值中新增的那一位是否为 1</strong>，来判断元素的新位置：</p>
+<ul>
+<li>如果该位为 <code>0</code>，则元素在新数组中的索引与原索引相同</li>
+<li>如果该位为 <code>1</code>，则元素的新索引为 <code>原索引 + oldCap</code></li>
+</ul>
+<p>这依赖于 <code>HashMap</code> 中定位桶的位置是通过 <code>index = (n - 1) &amp; hash</code> 计算的。当 <code>n</code> 是 2 的幂次方时，这个与运算可以高效地代替取模操作，同时保证索引分布的均匀性</p>
+<h2 id="往-HashMap-存入-20-个元素，会扩容几次？"><a href="#往-HashMap-存入-20-个元素，会扩容几次？" class="headerlink" title="往 HashMap 存入 20 个元素，会扩容几次？"></a>往 HashMap 存入 20 个元素，会扩容几次？</h2><p>总共会触发 <strong>一次扩容操作</strong>。在默认情况下，<code>HashMap</code> 的初始容量为 16，负载因子为 0.75。也就是说，当元素个数超过 <code>16 × 0.75 = 12</code> 时，就会触发扩容操作：</p>
+<ul>
+<li><strong>初始容量：16</strong><ul>
+<li>插入第 1 到第 12 个元素时，不会触发扩容；</li>
+<li>插入第 13 个元素时，超过负载因子阈值（12），触发扩容，容量翻倍为 32。</li>
+</ul>
+</li>
+<li><strong>扩容后容量：32</strong><ul>
+<li>插入第 14 到第 20 个元素时，元素总数仍未超过 <code>32 × 0.75 = 24</code>，因此不会再次扩容。</li>
+</ul>
+</li>
+</ul>
+<h2 id="说说-HashMap-的负载因子"><a href="#说说-HashMap-的负载因子" class="headerlink" title="说说 HashMap 的负载因子"></a>说说 HashMap 的负载因子</h2><p><code>HashMap</code> 的负载因子（<code>loadFactor</code>）默认值为 <strong>0.75</strong>，表示当元素个数超过当前容量的 75% 时，就会触发扩容操作</p>
+<p>这个默认值是在 <strong>时间效率和空间利用率之间取得的权衡</strong></p>
+<ul>
+<li>如果负载因子设置过低，会导致哈希表中存在大量空桶，浪费内存空间；</li>
+<li>如果设置过高，会增加哈希冲突的概率，导致查找效率下降。</li>
+</ul>
+<p><strong>0.75</strong> 是在实际使用中得出的一个经验值，能够在 <strong>减少冲突次数</strong> 和 <strong>节省空间成本</strong> 之间实现较好的平衡</p>
+<h2 id="ConcurrentHashMap-怎么实现的？"><a href="#ConcurrentHashMap-怎么实现的？" class="headerlink" title="ConcurrentHashMap 怎么实现的？"></a>ConcurrentHashMap 怎么实现的？</h2><p><strong>ConcurrentHashMap 的两代实现思路</strong></p>
+<table>
+<thead>
+<tr>
+<th>JDK 版本</th>
+<th>主要结构</th>
+<th>加锁策略</th>
+<th>冲突链</th>
+<th>典型特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1.7</strong></td>
+<td><strong>Segment 数组</strong> → Segment 内部 <strong>HashEntry 数组 + 链表</strong></td>
+<td>每个 Segment 一把 <code>ReentrantLock</code>（分段锁）</td>
+<td>单向链表</td>
+<td>锁粒度 &#x3D; Segment，最大并发度 &#x3D; Segment 数</td>
+</tr>
+<tr>
+<td><strong>1.8</strong></td>
+<td><strong>Node 数组</strong> → 单个桶为 <strong>链表 &#x2F; 红黑树</strong></td>
+<td>① 首次初始化和扩容：<code>CAS</code> + <code>synchronized</code>② 桶内插入&#x2F;替换：给桶头节点加 <code>synchronized</code></td>
+<td>链表 → 长度 ≥ 8 时且容量 ≥ 64 转红黑树</td>
+<td>锁粒度 &#x3D; 单个桶头节点，并发更高；查询 O(1)&#x2F;O(log n)</td>
+</tr>
+</tbody></table>
+<p><strong>JDK 1.7：Segment‑Lock 方案</strong></p>
+<p><img src="https://cdn.xiaolincoding.com//picgo/1721807523151-41ad316a-6264-48e8-9704-5b362bc0083c.webp" alt="JDK 1.7 ConcurrentHashMap"></p>
+<ol>
+<li><strong>数据分段</strong><ul>
+<li>整个表被切分为若干 Segment，每段内部维护一个 <code>HashEntry[]</code>（桶数组）</li>
+</ul>
+</li>
+<li><strong>分段加锁</strong><ul>
+<li>线程操作键值对时，只需竞争目标 Segment 的 <code>ReentrantLock</code>，其它 Segment 可并行访问</li>
+</ul>
+</li>
+<li><strong>缺点</strong><ul>
+<li>Segment 数固定，极端高并发下仍存在锁争用</li>
+<li>桶内冲突仅靠<strong>链表</strong>，数据量大时查找性能 O(n)</li>
+</ul>
+</li>
+</ol>
+<p><strong>JDK 1.8：CAS + Node + 红黑树</strong></p>
+<p><img src="https://cdn.xiaolincoding.com//picgo/1721807523128-7b1419e7-e6ba-47e6-aba0-8b29423a8ce7.webp" alt="JDK 1.8 ConcurrentHashMap"></p>
+<ol>
+<li><strong>取消 Segment</strong><ul>
+<li>直接对头结点加锁来保证线程安全的，锁的粒度相比 Segment 来说更小了，发生冲突和加锁的频率降低了，并发操作的性能就提高了</li>
+</ul>
+</li>
+<li><strong>初始化 &amp; 扩容</strong><ul>
+<li>采用 <strong>volatile + CAS</strong> 竞争表头，少量线程失败后退让，再由 “领头线程” 使用 <code>synchronized</code> 完成初始化&#x2F;迁移</li>
+</ul>
+</li>
+<li><strong>插入流程</strong><ul>
+<li>计算索引 idx，判断桶是否为空</li>
+<li>桶为空：CAS 直接放节点</li>
+<li>桶非空：对桶头节点加 <code>synchronized</code>，遍历链表 &#x2F; 红黑树，并替换或追加节点，最后再判断是否需要转为红黑树（链表长度 ≥ 8 且容量 ≥ 64 → 树化）</li>
+</ul>
+</li>
+<li><strong>优点</strong><ul>
+<li><strong>锁粒度更小</strong>：仅锁冲突桶的首节点</li>
+<li><strong>查询性能提升</strong>：链表转为红黑树后，桶内查找由 O(n) → O(log n)</li>
+<li><strong>更高并发度</strong>：大量场景下只用 CAS，无显式锁</li>
+</ul>
+</li>
+</ol>
+<h2 id="分段锁是如何加锁的？"><a href="#分段锁是如何加锁的？" class="headerlink" title="分段锁是如何加锁的？"></a>分段锁是如何加锁的？</h2><p>在 <strong>JDK 1.7 的 ConcurrentHashMap</strong> 中，采用了一种叫作 <strong>分段锁（Segment Lock）</strong> 的机制来实现线程安全</p>
+<p>整个 <code>ConcurrentHashMap</code> 被划分为多个 <strong>Segment</strong>，每个 Segment 本质上就是一个小型的 <code>HashMap</code>，并配有一把独立的锁。这样一来，多个线程只要访问的是不同的 Segment，就可以<strong>并发地进行读写操作</strong>，无需互相等待，从而大大提升了并发性能</p>
+<p>当执行插入、更新或删除操作时，<code>ConcurrentHashMap</code> 首先会根据 key 的 hash 定位到对应的 Segment，然后<strong>只对这个 Segment 加锁</strong>，而不是对整个 Map 加锁。这种粒度更细的加锁方式，相比传统的全表锁（如 <code>Hashtable</code> 中的 <code>synchronized</code> 方法），性能提升非常明显</p>
+<h2 id="分段锁是可重入的吗？"><a href="#分段锁是可重入的吗？" class="headerlink" title="分段锁是可重入的吗？"></a>分段锁是可重入的吗？</h2><p>在 <strong>JDK 1.7 的 ConcurrentHashMap</strong> 中，分段锁是通过 <strong>ReentrantLock（可重入锁）</strong> 实现的。也就是说，每个 Segment 内部维护了一把 ReentrantLock，使得同一个线程在未释放锁的情况下，可以多次获取同一把锁而不会发生死锁。这种设计既保证了线程安全，又提高了灵活性</p>
+<h2 id="已经用了-synchronized，为什么还要用-CAS-呢？"><a href="#已经用了-synchronized，为什么还要用-CAS-呢？" class="headerlink" title="已经用了 synchronized，为什么还要用 CAS 呢？"></a>已经用了 synchronized，为什么还要用 CAS 呢？</h2><p>在 <code>ConcurrentHashMap</code> 中，<strong>CAS 和 synchronized 是互补使用的</strong>，目的是在不同的并发场景下权衡性能与安全性</p>
+<p>例如，在 <code>putVal()</code> 方法中，如果计算出的桶（槽）位置为空，也就是说没有发生哈希冲突，那么就会尝试使用 <strong>CAS（无锁操作）</strong> 来插入新节点。由于哈希值经过扰动处理后冲突概率较低，这种情况下通过少量自旋即可完成插入操作，<strong>避免了加锁的开销</strong>，性能更高</p>
+<p>而当发生哈希冲突、桶中已有节点时，说明当前桶出现竞争或者数据较多，此时再使用 CAS 会导致频繁失败和自旋，反而浪费资源。因此在这种场景下，<strong>ConcurrentHashMap 会退而使用 synchronized 来保证线程安全</strong>，处理冲突的链表或红黑树操作</p>
+<p>总结来说：</p>
+<ul>
+<li><strong>无冲突时优先用 CAS，提高性能；</strong></li>
+<li><strong>发生冲突时使用 synchronized，降低竞争消耗</strong></li>
+</ul>
+<h2 id="ConcurrentHashMap用了悲观锁还是乐观锁"><a href="#ConcurrentHashMap用了悲观锁还是乐观锁" class="headerlink" title="ConcurrentHashMap用了悲观锁还是乐观锁?"></a>ConcurrentHashMap用了悲观锁还是乐观锁?</h2><p><strong>ConcurrentHashMap 同时使用了乐观锁和悲观锁，依据场景选择不同的并发策略，以实现性能与线程安全之间的平衡</strong></p>
+<p>在添加元素（<code>put</code> 操作）时，其执行流程如下：</p>
+<ul>
+<li><p><strong>初始化阶段</strong>：</p>
+<p>如果表为空，使用 <code>volatile</code> 配合 <strong>CAS（乐观锁）</strong> 来初始化桶数组</p>
+</li>
+<li><p><strong>定位桶位时</strong>：<br>如果目标位置（槽位）为空，尝试使用 <strong>CAS（乐观锁）</strong> 直接将节点插入该位置，无需加锁</p>
+</li>
+<li><p><strong>发生哈希冲突时</strong>：<br>如果目标位置已有其他节点（发生哈希碰撞），则使用 <strong><code>synchronized</code>（悲观锁）</strong> 加锁处理<br>在锁定的情况下，会遍历链表或红黑树，更新或新增节点，并在必要时判断是否需要将链表转为红黑树，以提升性能</p>
+</li>
+</ul>
+<h2 id="HashTable-底层实现原理是什么？"><a href="#HashTable-底层实现原理是什么？" class="headerlink" title="HashTable 底层实现原理是什么？"></a>HashTable 底层实现原理是什么？</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1719982934770-8587cb0a-6e1d-4007-9a22-bc1e41276491.png" alt="HashTable 原理"></p>
+<ul>
+<li>Hashtable 底层主要由<strong>数组 + 链表</strong>组成，数组负责存储数据，而链表用来解决哈希冲突</li>
+<li>为了保证线程安全，Hashtable 中所有的公共方法都使用了 <code>synchronized</code> 关键字进行同步。当一个线程访问同步方法时，其他线程如果也想访问这些方法，就会被阻塞，直到锁被释放</li>
+</ul>
+<h2 id="HashTable-线程安全是怎么实现的？"><a href="#HashTable-线程安全是怎么实现的？" class="headerlink" title="HashTable 线程安全是怎么实现的？"></a>HashTable 线程安全是怎么实现的？</h2><p><code>Hashtable</code> 之所以线程安全，是因为其所有涉及数据访问的方法（如 <code>put</code>、<code>get</code> 等）都使用了 <code>synchronized</code> 关键字进行同步控制。这意味着，在任何时刻，<strong>只能有一个线程对整个 Hashtable 实例进行操作</strong>，从而保证了线程安全性，但也带来了性能瓶颈</p>
+<p>源码示例（以 <code>put()</code> 和 <code>get()</code> 方法为例）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (value == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    Entry&lt;?,?&gt;[] tab = table;</span><br><span class="line">    <span class="type">int</span> <span class="variable">hash</span> <span class="operator">=</span> key.hashCode();</span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">    Entry&lt;K,V&gt; entry = (Entry&lt;K,V&gt;) tab[index];</span><br><span class="line">    <span class="keyword">for</span> (; entry != <span class="literal">null</span>; entry = entry.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (entry.hash == hash &amp;&amp; entry.key.equals(key)) &#123;</span><br><span class="line">            <span class="type">V</span> <span class="variable">old</span> <span class="operator">=</span> entry.value;</span><br><span class="line">            entry.value = value;</span><br><span class="line">            <span class="keyword">return</span> old;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    addEntry(hash, key, value, index);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title function_">get</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">    Entry&lt;?,?&gt;[] tab = table;</span><br><span class="line">    <span class="type">int</span> <span class="variable">hash</span> <span class="operator">=</span> key.hashCode();</span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;?,?&gt; e = tab[index]; e != <span class="literal">null</span>; e = e.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e.hash == hash &amp;&amp; e.key.equals(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> (V) e.value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，<code>Hashtable</code> 通过给整个方法加上 <code>synchronized</code>，确保了多线程环境下的可见性与互斥访问</p>
+<p><strong>同步机制说明</strong></p>
+<p>在 Java 中，<code>synchronized</code> 是一种内置锁机制。它可以修饰方法或代码块，当一个线程进入 <code>synchronized</code> 方法或代码块时，会独占该对象的锁，其他线程只能等待该锁被释放后才能继续执行</p>
+<p>这种做法虽然简单直接，但由于<strong>锁粒度较大（作用于整个对象），并发性能相对较低</strong>。因此在高并发场景下，<code>Hashtable</code> 逐渐被 <code>ConcurrentHashMap</code> 等更高效的并发容器取代</p>
+<h2 id="HashTable-和-ConcurrentHashMap-有什么区别？"><a href="#HashTable-和-ConcurrentHashMap-有什么区别？" class="headerlink" title="HashTable 和 ConcurrentHashMap 有什么区别？"></a>HashTable 和 ConcurrentHashMap 有什么区别？</h2><p><strong>底层数据结构</strong></p>
+<ul>
+<li><strong>ConcurrentHashMap</strong><ul>
+<li>JDK 1.7，采用 <strong>分段锁机制（Segment）+ 数组 + 链表</strong> 的结构。整个 Map 被划分为多个 Segment，每个 Segment 内部是一个小的 HashMap，具备独立锁</li>
+<li>JDK 1.8 及以后，移除了 Segment，使用 <strong>数组 + 链表 + 红黑树</strong> 实现，结构与 HashMap 类似。链表过长（超过 8 个元素）时转为红黑树以提升查询效率</li>
+</ul>
+</li>
+<li><strong>HashTable</strong><ul>
+<li>始终采用 <strong>数组 + 链表</strong> 的结构，数组是主体，链表用于处理哈希冲突</li>
+</ul>
+</li>
+</ul>
+<p><strong>实现线程安全的方式</strong></p>
+<ul>
+<li><strong>ConcurrentHashMap</strong><ul>
+<li><strong>JDK 1.7</strong>：通过 <strong>分段锁（Segment + ReentrantLock）</strong> 实现部分同步，锁粒度小，多个线程可并发访问不同的 Segment，提升并发性能</li>
+<li><strong>JDK 1.8</strong>：采用 <strong>CAS（乐观锁） + synchronized（悲观锁）</strong> 结合的方式实现更细粒度的同步控制：<ul>
+<li>桶位为空时，用 CAS 插入节点</li>
+<li>桶位非空（发生哈希冲突）时，用 synchronized 加锁处理</li>
+<li>结构中引入红黑树，优化了链表查询性能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>HashTable</strong><ul>
+<li>所有方法都使用了 <code>synchronized</code> 关键字，属于<strong>粗粒度锁</strong>，整个对象在同一时刻只能被一个线程访问，线程安全但效率低下</li>
+</ul>
+</li>
+</ul>
+<h2 id="HashMap、HashTable-和-ConcurrentHashMap-的区别"><a href="#HashMap、HashTable-和-ConcurrentHashMap-的区别" class="headerlink" title="HashMap、HashTable 和 ConcurrentHashMap 的区别"></a>HashMap、HashTable 和 ConcurrentHashMap 的区别</h2><ul>
+<li>HashMap线程不安全，效率高一点，可以存储null的key和value，null的key只能有一个，null的value可以有多个。默认初始容量为16，每次扩充变为原来2倍。创建时如果给定了初始容量，则扩充为2的幂次方大小。底层数据结构为数组+链表，插入元素后如果链表长度大于阈值（默认为8），先判断数组长度是否小于64，如果小于，则扩充数组，反之将链表转化为红黑树，以减少搜索时间。</li>
+<li>HashTable线程安全，效率低一点，其内部方法基本都经过synchronized修饰，不可以有null的key和value。默认初始容量为11，每次扩容变为原来的2n+1。创建时给定了初始容量，会直接用给定的大小。底层数据结构为数组+链表。它基本被淘汰了，要保证线程安全可以用ConcurrentHashMap。</li>
+<li>ConcurrentHashMap是Java中的一个线程安全的哈希表实现，它可以在多线程环境下并发地进行读写操作，而不需要像传统的HashTable那样在读写时加锁。ConcurrentHashMap的实现原理主要基于分段锁和CAS操作。它将整个哈希表分成了多Segment（段），每个Segment都类似于一个小的HashMap，它拥有自己的数组和一个独立的锁。在ConcurrentHashMap中，读操作不需要锁，可以直接对Segment进行读取，而写操作则只需要锁定对应的Segment，而不是整个哈希表，这样可以大大提高并发性能</li>
+</ul>
+<p><strong>HashMap</strong></p>
+<ul>
+<li><strong>线程不安全</strong>，但性能较高，适合单线程或线程安全有保障的场景</li>
+<li>允许一个 <code>null</code> key 和多个 <code>null</code> value</li>
+<li>默认初始容量为 <strong>16</strong>，扩容时按 <strong>2 的倍数增长</strong></li>
+<li>如果用户指定初始容量，内部会将其调整为 <strong>最接近且大于该值的 2 的幂次方</strong></li>
+<li><strong>底层结构</strong>：数组 + 链表（JDK 1.8 以后引入红黑树），当链表长度超过阈值（默认为 8），并且数组长度大于 64 时，会将链表转换为 <strong>红黑树</strong>，以提升查询效率；若数组长度不够，则优先选择扩容</li>
+</ul>
+<p><strong>HashTable</strong></p>
+<ul>
+<li><strong>线程安全</strong>，但效率低，<strong>所有公共方法都使用 <code>synchronized</code> 修饰</strong>，属于<strong>粗粒度锁</strong>。</li>
+<li>不允许 <code>null</code> 的 key 和 value</li>
+<li>默认初始容量为 <strong>11</strong>，扩容时容量变为 <code>2n + 1</code></li>
+<li>创建时如果指定容量，就直接使用该容量（不会调整为 2 的幂次方）</li>
+<li><strong>底层结构</strong>：数组 + 链表，用于解决哈希冲突</li>
+<li>已逐渐被淘汰，如需线程安全更推荐使用 <strong><code>ConcurrentHashMap</code></strong></li>
+</ul>
+<p><strong>ConcurrentHashMap</strong></p>
+<ul>
+<li><strong>线程安全</strong>，性能优于 <code>HashTable</code>，适合高并发场景</li>
+<li>不允许 <code>null</code> 的 key 或 value（防止空值导致歧义）</li>
+<li><strong>JDK 1.7 实现</strong>：基于 <strong>分段锁（Segment）</strong>，将哈希表分为若干段，每段维护自己的锁，多个线程可同时访问不同段，提高并发性</li>
+<li><strong>JDK 1.8 实现</strong>：移除了 Segment，改为使用 <strong>CAS（乐观锁）+ synchronized（悲观锁）</strong> 的组合方式进行细粒度同步<ul>
+<li>使用 <strong>CAS</strong> 插入空桶节点，避免加锁</li>
+<li>若发生哈希冲突，再使用 <strong>synchronized</strong> 锁定桶进行处理</li>
+<li>链表过长时转为 <strong>红黑树</strong>，提升查询效率</li>
+</ul>
+</li>
+<li>读操作在多数情况下是无锁的，性能更优</li>
+</ul>
+<h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><h2 id="Set-集合有什么特点？如何实现-key-无重复的？"><a href="#Set-集合有什么特点？如何实现-key-无重复的？" class="headerlink" title="Set 集合有什么特点？如何实现 key 无重复的？"></a>Set 集合有什么特点？如何实现 key 无重复的？</h2><p><strong>Set 的特点</strong></p>
+<p>Set 集合用于存储<strong>不重复的元素</strong>，<strong>不保证元素的顺序</strong>（具体顺序取决于其具体实现，例如 <code>HashSet</code>、<code>TreeSet</code>、<code>LinkedHashSet</code>）</p>
+<p><strong>如何保证元素唯一性</strong></p>
+<p>Set 是通过内部使用的 <strong>数据结构</strong> 来保证元素不重复的：</p>
+<ul>
+<li>对于 <code>HashSet</code>：底层基于 <strong>HashMap</strong> 实现，插入元素时会计算其 <code>hashCode()</code>，再通过 <code>equals()</code> 方法判断是否已经存在相同元素，若存在，则不会重复插入</li>
+<li>对于 <code>TreeSet</code>：底层基于 <strong>红黑树（TreeMap）</strong> 实现，依赖元素的自然顺序或指定的 <code>Comparator</code> 来比较是否相等</li>
+<li>对于 <code>LinkedHashSet</code>：底层是 <strong>HashMap + 双向链表</strong>，既保证了插入顺序，又保证了元素唯一性</li>
+</ul>
+<p>因此，Set 保证元素不重复，依赖的是 <code>hashCode()</code> 和 <code>equals()</code> 方法（哈希结构）或 <code>compareTo()</code> &#x2F; <code>Comparator</code>（排序结构）</p>
+<h2 id="有序的-Set-是什么？记录插入顺序的集合是哪种？"><a href="#有序的-Set-是什么？记录插入顺序的集合是哪种？" class="headerlink" title="有序的 Set 是什么？记录插入顺序的集合是哪种？"></a>有序的 Set 是什么？记录插入顺序的集合是哪种？</h2><ul>
+<li><strong>有序的 Set 是TreeSet和LinkedHashSet</strong>。TreeSet是基于红黑树实现，保证元素的自然顺序。LinkedHashSet是基于双重链表和哈希表的结合来实现元素的有序存储，保证元素添加的自然顺序</li>
+<li><strong>记录插入顺序的集合通常指的是LinkedHashSet</strong>，它不仅保证元素的唯一性，还可以保持元素的插入顺序。当需要在Set集合中记录元素的插入顺序时，可以选择使用LinkedHashSet来实现。</li>
+</ul>
+<p><strong>有序的 Set</strong></p>
+<ul>
+<li><code>TreeSet</code> ：它基于<strong>红黑树</strong>实现，能够按照元素的<strong>自然顺序</strong>（或自定义的 <code>Comparator</code>）自动排序</li>
+<li><code>LinkedHashSet</code> ：它基于 <strong>哈希表 + 双向链表</strong> 实现，保持的是<strong>元素的插入顺序</strong>，而非排序顺序</li>
+</ul>
+<p><strong>记录插入顺序的 Set</strong></p>
+<ul>
+<li><code>LinkedHashSet</code> 是专门用来记录插入顺序的 Set。它在保证元素不重复的同时，也能按照插入的顺序进行迭代访问</li>
+</ul>
 
     </div>
 
@@ -735,13 +959,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">32k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:43</span>
+    <span title="站点阅读时长">1:58</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -787,7 +1011,7 @@
 </noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Marnumon","repo":"blog-comments","client_id":"Ov23liskioUxOHwH9wCv","client_secret":"09fa60a57fa00d2a18c0f7d36df7332f5a659915","admin_user":"Marnumon","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"69c9cfa832e7474a8d3784c4459eabcc"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Marnumon","repo":"blog-comments","client_id":"Ov23liskioUxOHwH9wCv","client_secret":"09fa60a57fa00d2a18c0f7d36df7332f5a659915","admin_user":"Marnumon","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ca0a34bcfd85bd27d59a3ea438b9a4b8"}</script>
 <script src="/js/third-party/comments/gitalk.js" defer></script>
 
 </body>
