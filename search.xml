@@ -923,15 +923,14 @@
   <entry>
     <title>八股文笔记 #2 Java 集合</title>
     <url>/2025/07/02/boilerplate-answers-2-java-collection/</url>
-    <content><![CDATA[<p><del>再好的项目，也敌不过 HashMap 的 resize 过程没讲清楚</del></p>
-<span id="more"></span>
-
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="1-数组与集合的区别是？用过哪些？"><a href="#1-数组与集合的区别是？用过哪些？" class="headerlink" title="1# 数组与集合的区别是？用过哪些？"></a>1# 数组与集合的区别是？用过哪些？</h2><p>数组和集合的区别：</p>
+    <content><![CDATA[<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="1-数组与集合的区别是？用过哪些？"><a href="#1-数组与集合的区别是？用过哪些？" class="headerlink" title="1# 数组与集合的区别是？用过哪些？"></a>1# 数组与集合的区别是？用过哪些？</h2><p>数组和集合的区别：</p>
 <ul>
 <li>数组是固定长度的数据结构，一旦创建长度就无法改变，而集合是动态长度的数据结构，可以根据需要动态增加或减少元素</li>
 <li>数组可以包含基本数据类型和对象，而集合只能包含对象</li>
 <li>数组可以直接访问元素，而集合需要通过迭代器或其他方法访问元素</li>
 </ul>
+<span id="more"></span>
+
 <p>我用过的一些 Java 集合类：</p>
 <ol>
 <li><p><strong><code>List</code> 系列（有序、可重复）</strong>：</p>
@@ -1568,11 +1567,10 @@
   <entry>
     <title>八股文笔记 #3 Java 并发</title>
     <url>/2025/07/03/boilerplate-answers-3-java-concurrent/</url>
-    <content><![CDATA[<p><del>再好的项目，也敌不过 HashMap 的 resize 过程没讲清楚</del></p>
-<span id="more"></span>
-
-<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1-Java-的线程和操作系统的线程一样吗？"><a href="#1-Java-的线程和操作系统的线程一样吗？" class="headerlink" title="1# Java 的线程和操作系统的线程一样吗？"></a>1# Java 的线程和操作系统的线程一样吗？</h2><p>是的，Java 中的线程本质上与操作系统的线程是一致的</p>
+    <content><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1-Java-的线程和操作系统的线程一样吗？"><a href="#1-Java-的线程和操作系统的线程一样吗？" class="headerlink" title="1# Java 的线程和操作系统的线程一样吗？"></a>1# Java 的线程和操作系统的线程一样吗？</h2><p>是的，Java 中的线程本质上与操作系统的线程是一致的</p>
 <img src="https://cdn.xiaolincoding.com//picgo/image-20240725230425385.png" alt="Java 线程" style="zoom: 25%;" />
+
+<span id="more"></span>
 
 <p>在现代 JVM（如 HotSpot）中，Java 使用的是 <strong>一对一的线程模型</strong>，即每创建一个 Java 线程，JVM 底层都会调用操作系统的 API（如 Linux 下的 <code>pthread_create</code>）来创建一个 <strong>原生线程</strong></p>
 <p>因此，Java 线程与操作系统线程是 <strong>一一对应</strong> 的，拥有独立的调用栈、程序计数器等资源，由操作系统负责调度和管理</p>

@@ -258,13 +258,6 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-09-08 01:12:14" itemprop="dateModified" datetime="2025-09-08T01:12:14+00:00">2025-09-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -304,11 +297,10 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><del>再好的项目，也敌不过 HashMap 的 resize 过程没讲清楚</del></p>
-<span id="more"></span>
-
-<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1-Java-的线程和操作系统的线程一样吗？"><a href="#1-Java-的线程和操作系统的线程一样吗？" class="headerlink" title="1# Java 的线程和操作系统的线程一样吗？"></a>1# Java 的线程和操作系统的线程一样吗？</h2><p>是的，Java 中的线程本质上与操作系统的线程是一致的</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1-Java-的线程和操作系统的线程一样吗？"><a href="#1-Java-的线程和操作系统的线程一样吗？" class="headerlink" title="1# Java 的线程和操作系统的线程一样吗？"></a>1# Java 的线程和操作系统的线程一样吗？</h2><p>是的，Java 中的线程本质上与操作系统的线程是一致的</p>
 <img src="https://cdn.xiaolincoding.com//picgo/image-20240725230425385.png" alt="Java 线程" style="zoom: 25%;" />
+
+<span id="more"></span>
 
 <p>在现代 JVM（如 HotSpot）中，Java 使用的是 <strong>一对一的线程模型</strong>，即每创建一个 Java 线程，JVM 底层都会调用操作系统的 API（如 Linux 下的 <code>pthread_create</code>）来创建一个 <strong>原生线程</strong></p>
 <p>因此，Java 线程与操作系统线程是 <strong>一一对应</strong> 的，拥有独立的调用栈、程序计数器等资源，由操作系统负责调度和管理</p>
