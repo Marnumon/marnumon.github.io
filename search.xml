@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AimAssist</title>
+    <url>/2024/11/13/AimAssist/</url>
+    <content><![CDATA[<h1 id="基于carpet-1-20的提前辅助瞄准"><a href="#基于carpet-1-20的提前辅助瞄准" class="headerlink" title="基于carpet 1.20的提前辅助瞄准"></a>基于carpet 1.20的提前辅助瞄准</h1><p><del>咕了</del></p>
+<p>适用版本：1.20.x</p>
+<span id="more"></span>
+
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── helpers</span><br><span class="line">│   ├── BallisticCalculator // 弹道计算</span><br><span class="line">│   └── generateEmissionAngle(Player)</span><br><span class="line">└── mixins</span><br><span class="line">    ├── BowItem_aimAssistMixin  // 捕获目标</span><br><span class="line">    ├── getTarget(Level, Player, InteractionHand, CallbackInfoReturnable&lt;InteractionResultHolder&lt;ItemStack&gt;&gt;)</span><br><span class="line">    ├── LivingEntity_aimAssistMixin  // 准心控制</span><br><span class="line">    └── directionControl(CallbackInfo) // tick级物品栏检测</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本处理逻辑"><a href="#基本处理逻辑" class="headerlink" title="基本处理逻辑"></a>基本处理逻辑</h2><ol>
+<li><p>输入指令，标记为true</p>
+</li>
+<li><p>鼠标右键（mouseDown）发出射线追踪获取实体信息，如果为Mob类，添加到目标队列，并且高亮目标，再次右键同一目标，移出队列，取消高亮</p>
+</li>
+<li><p>鼠标右键（mouseOn），根据目标的坐标和速度，计算弹道，并将准心设置在预设点，<del>蓄力完毕后会持续跟踪</del>，直到生物被移除目标队列</p>
+</li>
+</ol>
+<h2 id="代码参考"><a href="#代码参考" class="headerlink" title="代码参考"></a>代码参考</h2><ul>
+<li><p>carpet命令<br><code>carpet.commands.PlayerCommand</code><br><code>carpet.CarpetSettings</code><br><code>carpet.commands</code></p>
+</li>
+<li><p>使用mixin注入代码，检测玩家对于物品弓的使用事件<br><a href="https://github.com/gnembon/fabric-carpet/wiki/Checking-if-a-player-is-holding-the-right-tool">carpet检测玩家手持物品</a></p>
+</li>
+<li><p>射线检测获取目标<br><code>carpet.script.utils.Tracer.rayTrace</code><br><code>net.minecraft.world.phys.EntityHitResult</code><br><code>net.minecraft.world.entity.Entity.getViewVector</code>  </p>
+</li>
+<li><p>添加到目标队列<br>&#x2F;&#x2F; TODO</p>
+</li>
+<li><p>获取目标坐标，速度等信息<br><code>net.minecraft.world.entity.getDeltaMovement</code><br><code>net.minecraft.world.entity.spawnSprintParticle</code><br><code>net.minecraft.world.entity.getYRotf</code></p>
+</li>
+<li><p>获取轨迹所经过的方块，添加到队列<br><code>package net.minecraft.world.entity.projectile.shoot</code></p>
+</li>
+<li><p>箭的运动<br><code>net.minecraft.world.entity.projectile.AbstractArrow.tick</code></p>
+</li>
+<li><p>tick级计算并获取计算后的角度和力度<br>&#x2F;&#x2F; TODO</p>
+</li>
+<li><p>方向控制<br><code>carpet.helpers.EntityPlayerActionPack.look</code><br><code>net.minecraft.world.entity.ai.control.LookControl.tick</code><br><code>net.minecraft.world.entity.Entity.setRot</code></p>
+</li>
+<li><p>火力控制<br><code>carpet.helpers.EntityPlayerActionPack.ActionType.USE</code><br><code>net.minecraft.world.item.SnowballItem.use</code><br><code>net.minecraft.world.entity.projectile.Projectile.shoot</code><br><code>net.minecraft.world.entity.projectile.Projectile.shootFromRotation</code><br><code>net.minecraft.world.item.BowItem.releaseUsing</code></p>
+</li>
+<li><p>检查弓物品的使用状态<br><code>net.minecraft.world.entity.ai.goal.RangedBowAttackGoal.isHoldingBow</code></p>
+</li>
+<li><p>图腾检测<br><code>net.minecraft.world.entity.LivingEntity.checkTotemDeathProtection</code></p>
+</li>
+</ul>
+<h2 id="待研究"><a href="#待研究" class="headerlink" title="待研究"></a>待研究</h2><ul>
+<li><p>检测弓的使用*<br><code>net.minecraft.world.entity.LivingEntity.releaseUsingItem</code>  结束阶段<br><code>net.minecraft.world.entity.LivingEntity.updateUsingItem</code>  可能是中期阶段，待验证</p>
+</li>
+<li><p>实体<br><code>net.minecraft.world.entity.Entity.getOnPos</code>  脚底方块<br><code>net.minecraft.world.entity.Entity.getXRot</code>  角度</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Minecraft</category>
+      </categories>
+      <tags>
+        <tag>Minecraft</tag>
+        <tag>Carpet</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>八股文笔记 #1 Java 基础</title>
     <url>/2025/06/30/boilerplate-answers-1-java-basics/</url>
     <content><![CDATA[<p><del>再好的项目，也敌不过 HashMap 的 resize 过程没讲清楚</del></p>
@@ -1503,65 +1562,6 @@
       <tags>
         <tag>Java</tag>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AimAssist</title>
-    <url>/2024/11/13/AimAssist/</url>
-    <content><![CDATA[<h1 id="基于carpet-1-20的提前辅助瞄准"><a href="#基于carpet-1-20的提前辅助瞄准" class="headerlink" title="基于carpet 1.20的提前辅助瞄准"></a>基于carpet 1.20的提前辅助瞄准</h1><p><del>咕了</del></p>
-<p>适用版本：1.20.x</p>
-<span id="more"></span>
-
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">├── helpers</span><br><span class="line">│   ├── BallisticCalculator // 弹道计算</span><br><span class="line">│   └── generateEmissionAngle(Player)</span><br><span class="line">└── mixins</span><br><span class="line">    ├── BowItem_aimAssistMixin  // 捕获目标</span><br><span class="line">    ├── getTarget(Level, Player, InteractionHand, CallbackInfoReturnable&lt;InteractionResultHolder&lt;ItemStack&gt;&gt;)</span><br><span class="line">    ├── LivingEntity_aimAssistMixin  // 准心控制</span><br><span class="line">    └── directionControl(CallbackInfo) // tick级物品栏检测</span><br></pre></td></tr></table></figure>
-
-<h2 id="基本处理逻辑"><a href="#基本处理逻辑" class="headerlink" title="基本处理逻辑"></a>基本处理逻辑</h2><ol>
-<li><p>输入指令，标记为true</p>
-</li>
-<li><p>鼠标右键（mouseDown）发出射线追踪获取实体信息，如果为Mob类，添加到目标队列，并且高亮目标，再次右键同一目标，移出队列，取消高亮</p>
-</li>
-<li><p>鼠标右键（mouseOn），根据目标的坐标和速度，计算弹道，并将准心设置在预设点，<del>蓄力完毕后会持续跟踪</del>，直到生物被移除目标队列</p>
-</li>
-</ol>
-<h2 id="代码参考"><a href="#代码参考" class="headerlink" title="代码参考"></a>代码参考</h2><ul>
-<li><p>carpet命令<br><code>carpet.commands.PlayerCommand</code><br><code>carpet.CarpetSettings</code><br><code>carpet.commands</code></p>
-</li>
-<li><p>使用mixin注入代码，检测玩家对于物品弓的使用事件<br><a href="https://github.com/gnembon/fabric-carpet/wiki/Checking-if-a-player-is-holding-the-right-tool">carpet检测玩家手持物品</a></p>
-</li>
-<li><p>射线检测获取目标<br><code>carpet.script.utils.Tracer.rayTrace</code><br><code>net.minecraft.world.phys.EntityHitResult</code><br><code>net.minecraft.world.entity.Entity.getViewVector</code>  </p>
-</li>
-<li><p>添加到目标队列<br>&#x2F;&#x2F; TODO</p>
-</li>
-<li><p>获取目标坐标，速度等信息<br><code>net.minecraft.world.entity.getDeltaMovement</code><br><code>net.minecraft.world.entity.spawnSprintParticle</code><br><code>net.minecraft.world.entity.getYRotf</code></p>
-</li>
-<li><p>获取轨迹所经过的方块，添加到队列<br><code>package net.minecraft.world.entity.projectile.shoot</code></p>
-</li>
-<li><p>箭的运动<br><code>net.minecraft.world.entity.projectile.AbstractArrow.tick</code></p>
-</li>
-<li><p>tick级计算并获取计算后的角度和力度<br>&#x2F;&#x2F; TODO</p>
-</li>
-<li><p>方向控制<br><code>carpet.helpers.EntityPlayerActionPack.look</code><br><code>net.minecraft.world.entity.ai.control.LookControl.tick</code><br><code>net.minecraft.world.entity.Entity.setRot</code></p>
-</li>
-<li><p>火力控制<br><code>carpet.helpers.EntityPlayerActionPack.ActionType.USE</code><br><code>net.minecraft.world.item.SnowballItem.use</code><br><code>net.minecraft.world.entity.projectile.Projectile.shoot</code><br><code>net.minecraft.world.entity.projectile.Projectile.shootFromRotation</code><br><code>net.minecraft.world.item.BowItem.releaseUsing</code></p>
-</li>
-<li><p>检查弓物品的使用状态<br><code>net.minecraft.world.entity.ai.goal.RangedBowAttackGoal.isHoldingBow</code></p>
-</li>
-<li><p>图腾检测<br><code>net.minecraft.world.entity.LivingEntity.checkTotemDeathProtection</code></p>
-</li>
-</ul>
-<h2 id="待研究"><a href="#待研究" class="headerlink" title="待研究"></a>待研究</h2><ul>
-<li><p>检测弓的使用*<br><code>net.minecraft.world.entity.LivingEntity.releaseUsingItem</code>  结束阶段<br><code>net.minecraft.world.entity.LivingEntity.updateUsingItem</code>  可能是中期阶段，待验证</p>
-</li>
-<li><p>实体<br><code>net.minecraft.world.entity.Entity.getOnPos</code>  脚底方块<br><code>net.minecraft.world.entity.Entity.getXRot</code>  角度</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Minecraft</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Minecraft</tag>
-        <tag>Carpet</tag>
       </tags>
   </entry>
   <entry>
