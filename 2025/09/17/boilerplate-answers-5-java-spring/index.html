@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"marnumon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+
+
+<link rel="canonical" href="https://marnumon.github.io/2025/09/17/boilerplate-answers-5-java-spring/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://marnumon.github.io/2025/09/17/boilerplate-answers-5-java-spring/","path":"2025/09/17/boilerplate-answers-5-java-spring/","title":"八股文笔记 #5 Java Spring"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>八股文笔记 #5 Java Spring | marnu's blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">marnu's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%AF%B9-Spring-%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-text">1# 说一下你对 Spring 的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Spring-%E6%98%AF%E6%80%8E%E4%B9%88%E7%AE%A1%E7%90%86%E5%AF%B9%E8%B1%A1%E7%9A%84%EF%BC%9F"><span class="nav-text">2# Spring 是怎么管理对象的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Autowired-%E5%92%8C-Resource-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">3# @Autowired 和 @Resource 的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Spring-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%E8%AF%B4%E8%AF%B4%E4%BD%A0%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="nav-text">4# Spring 的核心思想说说你的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%EF%BC%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">5# 依赖倒置，依赖注入，控制反转分别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3-Spring-IoC%EF%BC%9F"><span class="nav-text">6# 怎么理解 Spring IoC？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Spring-%E7%9A%84-AOP-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B"><span class="nav-text">7# Spring 的 AOP 介绍一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Spring-AOP-%E4%B8%BB%E8%A6%81%E6%83%B3%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-text">8# Spring AOP 主要想解决什么问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Spring-AOP-%E7%9A%84%E5%8E%9F%E7%90%86%E4%BA%86%E8%A7%A3%E5%90%97%EF%BC%9F"><span class="nav-text">9# Spring AOP 的原理了解吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-AOP-%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B3%A8%E8%A7%A3%EF%BC%9F"><span class="nav-text">10# AOP 实现有哪些注解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E4%BA%86%E8%A7%A3%E5%90%97%EF%BC%9F%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%EF%BC%9F"><span class="nav-text">11# 依赖注入了解吗？怎么实现依赖注入的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-Bean-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9F"><span class="nav-text">12# Bean 的生命周期？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-text">13# Bean的作用域有哪些？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-MVC"><span class="nav-text">Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-MVC-%E5%88%86%E5%B1%82%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B"><span class="nav-text">1# MVC 分层介绍一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BA%86%E8%A7%A3-Spring-MVC-%E7%9A%84%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B%E5%90%97%EF%BC%9F"><span class="nav-text">2# 了解 Spring MVC 的处理流程吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8B%A6%E6%88%AA%E5%99%A8%E5%92%8C%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">3# 拦截器和过滤器的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9A%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%9A%84%EF%BC%9F"><span class="nav-text">4# 你是怎么做全局异常处理的？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot"><span class="nav-text">Spring Boot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">1# 自动装配原理是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Spring-Boot-%E6%9C%89%E5%93%AA%E4%BA%9B%E9%87%8D%E8%A6%81%E7%9A%84%E6%B3%A8%E8%A7%A3%EF%BC%9F"><span class="nav-text">2# Spring Boot 有哪些重要的注解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Spring-Boot-%E6%80%8E%E4%B9%88%E5%BC%80%E5%90%AF%E4%BA%8B%E5%8A%A1%EF%BC%9F"><span class="nav-text">3# Spring Boot 怎么开启事务？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Spring-Boot-%E6%80%8E%E4%B9%88%E5%81%9A%E5%88%B0%E5%AF%BC%E5%85%A5%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="nav-text">4# Spring Boot 怎么做到导入就可以直接使用的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Spring-Boot-%E8%BF%87%E6%BB%A4%E5%99%A8%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8%E8%AF%B4%E4%B8%80%E4%B8%8B%EF%BC%9F"><span class="nav-text">5# Spring Boot 过滤器和拦截器说一下？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Spring-Boot-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%BC%80%E7%AE%B1%E5%8D%B3%E7%94%A8%EF%BC%9F"><span class="nav-text">6# Spring Boot 为什么能开箱即用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Spring-Boot-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-text">7# Spring Boot 自动配置是怎么实现的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Starter-%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="nav-text">8# Starter 的原理？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mybatis"><span class="nav-text">Mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%8E%E4%BC%A0%E7%BB%9F%E7%9A%84-JDBC-%E7%9B%B8%E6%AF%94%EF%BC%8CMyBatis-%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="nav-text">1# 与传统的 JDBC 相比，MyBatis 的优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-MyBatis-%E5%92%8C-Hibernate-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">9. MyBatis 和 Hibernate 的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-MyBatis-%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98%E3%80%81%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="nav-text">10. MyBatis 一级缓存、二级缓存原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-MyBatis-%E6%98%AF%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95%E5%92%8C-SQL-%E7%BB%91%E5%AE%9A%E7%9A%84%EF%BC%9F%EF%BC%88%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%EF%BC%89"><span class="nav-text">11. MyBatis 是如何把接口方法和 SQL 绑定的？（动态代理）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cloud"><span class="nav-text">Spring Cloud</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BA%86%E8%A7%A3-Spring-Cloud-%E5%90%97%EF%BC%8C%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BB%96%E5%92%8C-Spring-Boot-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">1# 了解 Spring Cloud 吗，说一下他和 Spring Boot 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BB%84%E4%BB%B6%EF%BC%9F"><span class="nav-text">2# 用过哪些微服务组件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%AE%95%E6%9C%BA%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-text">12. 注册中心宕机了怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Feign-%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="nav-text">13. Feign 是怎么实现远程调用的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-Gateway-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%EF%BC%9F"><span class="nav-text">14. Gateway 的核心功能？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E4%BD%A0%E4%BB%AC%E9%A1%B9%E7%9B%AE%E9%87%8C%E6%80%8E%E4%B9%88%E5%81%9A%E7%BB%9F%E4%B8%80%E9%89%B4%E6%9D%83%E7%9A%84%EF%BC%9F"><span class="nav-text">15. 你们项目里怎么做统一鉴权的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0%EF%BC%9F"><span class="nav-text">16. 配置中心怎么实现动态刷新？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9%EF%BC%9F%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="nav-text">17. 什么是服务雪崩？怎么解决？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-%E7%86%94%E6%96%AD%E5%92%8C%E9%99%90%E6%B5%81%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">18. 熔断和限流有什么区别？</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Marnumon"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Marnumon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Marnumon" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Marnumon" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/84063541" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;84063541" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://bobnlp.site/" title="https:&#x2F;&#x2F;bobnlp.site" rel="noopener" target="_blank">bobnlp</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://marnumon.github.io/2025/09/17/boilerplate-answers-5-java-spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Marnumon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="marnu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="八股文笔记 #5 Java Spring | marnu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          八股文笔记 #5 Java Spring
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-17 02:29:30" itemprop="dateCreated datePublished" datetime="2025-09-17T02:29:30+00:00">2025-09-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>33 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="1-说一下你对-Spring-的理解"><a href="#1-说一下你对-Spring-的理解" class="headerlink" title="1# 说一下你对 Spring 的理解"></a>1# 说一下你对 Spring 的理解</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1712650311366-b499469c-5afd-4be9-bad3-d787de86bf98.png" alt="img"></p>
+<span id="more"></span>
+
+<p>Spring框架核心特性包括：</p>
+<ul>
+<li><strong>IoC容器</strong>：Spring通过控制反转实现了对象的创建和对象间的依赖关系管理。开发者只需要定义好Bean及其依赖关系，Spring容器负责创建和组装这些对象。</li>
+<li><strong>AOP</strong>：面向切面编程，允许开发者定义横切关注点，例如事务管理、安全控制等，独立于业务逻辑的代码。通过AOP，可以将这些关注点模块化，提高代码的可维护性和可重用性。</li>
+<li><strong>事务管理</strong>：Spring提供了一致的事务管理接口，支持声明式和编程式事务。开发者可以轻松地进行事务管理，而无需关心具体的事务API。</li>
+<li><strong>MVC框架</strong>：Spring MVC是一个基于Servlet API构建的Web框架，采用了模型-视图-控制器（MVC）架构。它支持灵活的URL到页面控制器的映射，以及多种视图技术。</li>
+</ul>
+<h2 id="2-Spring-是怎么管理对象的？"><a href="#2-Spring-是怎么管理对象的？" class="headerlink" title="2# Spring 是怎么管理对象的？"></a>2# Spring 是怎么管理对象的？</h2><ul>
+<li>核心是 <strong>IoC（控制反转）容器</strong>，由 <code>ApplicationContext</code> 管理对象（Bean）。</li>
+<li>Spring 负责对象的：<strong>创建 → 初始化 → 生命周期管理 → 销毁</strong>。</li>
+<li>Bean 定义写在注解&#x2F;XML&#x2F;配置类里，Spring 容器启动时会扫描并实例化。</li>
+<li>注入依赖时用 <strong>依赖注入（DI）</strong>，避免开发者手动 <code>new</code> 对象。</li>
+</ul>
+<hr>
+<h2 id="3-Autowired-和-Resource-的区别？"><a href="#3-Autowired-和-Resource-的区别？" class="headerlink" title="3# @Autowired 和 @Resource 的区别？"></a>3# @Autowired 和 @Resource 的区别？</h2><ul>
+<li><code>@Autowired</code>（Spring 提供）：默认 <strong>按类型</strong> 注入，需要配合 <code>@Qualifier</code> 指定 Bean 名称。</li>
+<li><code>@Resource</code>（JDK 提供）：默认 <strong>按名称</strong> 注入，找不到再按类型。</li>
+<li>依赖冲突时：<ul>
+<li><code>@Autowired</code> 必须配合 <code>@Qualifier</code> 或 <code>@Primary</code>。</li>
+<li><code>@Resource</code> 直接指定 <code>name</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Spring-的核心思想说说你的理解？"><a href="#4-Spring-的核心思想说说你的理解？" class="headerlink" title="4# Spring 的核心思想说说你的理解？"></a>4# Spring 的核心思想说说你的理解？</h2><table>
+<thead>
+<tr>
+<th><strong>核心思想</strong></th>
+<th><strong>解决的问题</strong></th>
+<th><strong>实现手段</strong></th>
+<th><strong>典型应用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>IOC</strong></td>
+<td>对象创建与依赖管理的高耦合</td>
+<td>容器管理Bean生命周期</td>
+<td>动态替换数据库实现、服务组装</td>
+</tr>
+<tr>
+<td><strong>DI</strong></td>
+<td>依赖关系的硬编码问题</td>
+<td>Setter&#x2F;构造器&#x2F;注解注入</td>
+<td>注入数据源、服务层依赖DAO层</td>
+</tr>
+<tr>
+<td><strong>AOP</strong></td>
+<td>横切逻辑分散在业务代码中</td>
+<td>动态代理与切面配置</td>
+<td>日志、事务、权限校验统一处理</td>
+</tr>
+</tbody></table>
+<p>Spring通过这IOC、DI、AOP三大核心思想，实现了轻量级、高内聚低耦合的企业级应用开发框架，成为Java生态中不可或缺的基石。</p>
+<h2 id="5-依赖倒置，依赖注入，控制反转分别是什么？"><a href="#5-依赖倒置，依赖注入，控制反转分别是什么？" class="headerlink" title="5# 依赖倒置，依赖注入，控制反转分别是什么？"></a>5# 依赖倒置，依赖注入，控制反转分别是什么？</h2><ul>
+<li>控制反转：“控制”指的是对程序执行流程的控制，而“反转”指的是在没有使用框架之前，程序员自己控制整个程序的执行。在使用框架之后，整个程序的执行流程通过框架来控制。流程的控制权从程序员“反转”给了框架。</li>
+<li>依赖注入：依赖注入和控制反转恰恰相反，它是一种具体的编码技巧。我们不通过 new 的方式在类内部创建依赖类的对象，而是将依赖的类对象在外部创建好之后，通过构造函数、函数参数等方式传递（或注入）给类来使用。</li>
+<li>依赖倒置：这条原则跟控制反转有点类似，主要用来指导框架层面的设计。高层模块不依赖低层模块，它们共同依赖同一个抽象。抽象不要依赖具体实现细节，具体实现细节依赖抽象。</li>
+</ul>
+<h2 id="6-怎么理解-Spring-IoC？"><a href="#6-怎么理解-Spring-IoC？" class="headerlink" title="6# 怎么理解 Spring IoC？"></a>6# 怎么理解 Spring IoC？</h2><p><strong>IOC</strong>：Inversion Of Control，即控制反转，是一种设计思想。在传统的 Java SE 程序设计中，我们直接在对象内部通过 new 的方式来创建对象，是程序主动创建依赖对象；</p>
+<p><img src="https://cdn.xiaolincoding.com//picgo/1716790809843-e520e960-fb95-4511-aa30-73966361320a.webp" alt="img"></p>
+<p>而在Spring程序设计中，IOC 是有专门的容器去控制对象。</p>
+<p><img src="https://cdn.xiaolincoding.com//picgo/1716790809860-74256f8b-3a96-485c-8aa1-11fa5dfb7640.webp" alt="img"></p>
+<p><strong>所谓控制</strong>就是对象的创建、初始化、销毁。</p>
+<ul>
+<li>创建对象：原来是 new 一个，现在是由 Spring 容器创建。</li>
+<li>初始化对象：原来是对象自己通过构造器或者 setter 方法给依赖的对象赋值，现在是由 Spring 容器自动注入。</li>
+<li>销毁对象：原来是直接给对象赋值 null 或做一些销毁操作，现在是 Spring 容器管理生命周期负责销毁对象。</li>
+</ul>
+<p>总结：IOC 解决了繁琐的对象生命周期的操作，解耦了我们的代码。<strong>所谓反转</strong>：其实是反转的控制权，前面提到是由 Spring 来控制对象的生命周期，那么对象的控制就完全脱离了我们的控制，控制权交给了 Spring 。这个反转是指：我们由对象的控制者变成了 IOC 的被动控制者。</p>
+<h2 id="7-Spring-的-AOP-介绍一下"><a href="#7-Spring-的-AOP-介绍一下" class="headerlink" title="7# Spring 的 AOP 介绍一下"></a>7# Spring 的 AOP 介绍一下</h2><p>Spring AOP是Spring框架中的一个重要模块，用于实现面向切面编程。</p>
+<p>我们知道，Java 就是一门面向对象编程的语言，在 OOP 中最小的单元就是“Class 对象”，但是在 AOP 中最小的单元是“切面”。一个“切面”可以包含很多种类型和对象，对它们进行模块化管理，例如事务管理。</p>
+<p>在面向切面编程的思想里面，把功能分为两种</p>
+<ul>
+<li><strong>核心业务</strong>：登陆、注册、增、删、改、查、都叫核心业务</li>
+<li><strong>周边功能</strong>：日志、事务管理这些次要的为周边业务</li>
+</ul>
+<p>在面向切面编程中，核心业务功能和周边功能是分别独立进行开发，两者不是耦合的，然后把切面功能和核心业务功能 “编织” 在一起，这就叫AOP。</p>
+<p>AOP能够将那些与业务无关，<strong>却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来</strong>，便于<strong>减少系统的重复代码</strong>，<strong>降低模块间的耦合度</strong>，并<strong>有利于未来的可拓展性和可维护性</strong>。</p>
+<p>在 AOP 中有以下几个概念：</p>
+<ul>
+<li><strong>AspectJ</strong>：切面，只是一个概念，没有具体的接口或类与之对应，是 Join point，Advice 和 Pointcut 的一个统称。</li>
+<li><strong>Join point</strong>：连接点，指程序执行过程中的一个点，例如方法调用、异常处理等。在 Spring AOP 中，仅支持方法级别的连接点。</li>
+<li><strong>Advice</strong>：通知，即我们定义的一个切面中的横切逻辑，有“around”，“before”和“after”三种类型。在很多的 AOP 实现框架中，Advice 通常作为一个拦截器，也可以包含许多个拦截器作为一条链路围绕着 Join point 进行处理。</li>
+<li><strong>Pointcut</strong>：切点，用于匹配连接点，一个 AspectJ 中包含哪些 Join point 需要由 Pointcut 进行筛选。</li>
+<li><strong>Introduction</strong>：引介，让一个切面可以声明被通知的对象实现任何他们没有真正实现的额外的接口。例如可以让一个代理对象代理两个目标类。</li>
+<li><strong>Weaving</strong>：织入，在有了连接点、切点、通知以及切面，如何将它们应用到程序中呢？没错，就是织入，在切点的引导下，将通知逻辑插入到目标方法上，使得我们的通知逻辑在方法调用时得以执行。</li>
+<li><strong>AOP proxy</strong>：AOP 代理，指在 AOP 实现框架中实现切面协议的对象。在 Spring AOP 中有两种代理，分别是 JDK 动态代理和 CGLIB 动态代理。</li>
+<li><strong>Target object</strong>：目标对象，就是被代理的对象。</li>
+</ul>
+<p>Spring AOP 是基于 JDK 动态代理和 Cglib 提升实现的，两种代理方式都属于运行时的一个方式，所以它没有编译时的一个处理，那么因此 Spring 是通过 Java 代码实现的。</p>
+<h2 id="8-Spring-AOP-主要想解决什么问题？"><a href="#8-Spring-AOP-主要想解决什么问题？" class="headerlink" title="8# Spring AOP 主要想解决什么问题？"></a>8# Spring AOP 主要想解决什么问题？</h2><p>它的目的是对于面向对象思维的一种补充，而不是像引入命令式、函数式编程思维让他顺应另一种开发场景。在我个人的理解下AOP更像是一种对于不支持多继承的弥补，除开对象的主要特征（我更喜欢叫“强共性”）被抽象为了一条继承链路，对于一些“弱共性”，AOP可以统一对他们进行抽象和集中处理。</p>
+<p>举一个简单的例子，打印日志。需要打印日志可能是许多对象的一个共性，这在企业级开发中十分常见，但是日志的打印并不反应这个对象的主要共性。而日志的打印又是一个具体的内容，它并不抽象，所以它的工作也不可以用接口来完成。而如果利用继承，打印日志的工作又横跨继承树下面的多个同级子节点，强行侵入到继承树内进行归纳会干扰这些强共性的区分。</p>
+<p>这时候，我们就需要AOP了。AOP首先在一个Aspect（切面）里定义了一些Advice（增强），其中包含具体实现的代码，同时整理了切入点，切入点的粒度是方法。最后，我们将这些Advice织入到对象的方法上，形成了最后执行方法时面对的完整方法。</p>
+<p><img src="https://cdn.xiaolincoding.com//picgo/1716791217083-132fe2ba-706a-4d8d-aef3-1617a2046585.png" alt="img"></p>
+<h2 id="9-Spring-AOP-的原理了解吗？"><a href="#9-Spring-AOP-的原理了解吗？" class="headerlink" title="9# Spring AOP 的原理了解吗？"></a>9# Spring AOP 的原理了解吗？</h2><p>Spring AOP的实现依赖于<strong>动态代理技术</strong>。动态代理是在运行时动态生成代理对象，而不是在编译时。它允许开发者在运行时指定要代理的接口和行为，从而实现在不修改源码的情况下增强方法的功能。</p>
+<p>Spring AOP支持两种动态代理：</p>
+<ul>
+<li><strong>基于JDK的动态代理</strong>：使用java.lang.reflect.Proxy类和java.lang.reflect.InvocationHandler接口实现。这种方式需要代理的类实现一个或多个接口。</li>
+<li><strong>基于CGLIB的动态代理</strong>：当被代理的类没有实现接口时，Spring会使用CGLIB库生成一个被代理类的子类作为代理。CGLIB（Code Generation Library）是一个第三方代码生成库，通过继承方式实现代理。</li>
+</ul>
+<h2 id="10-AOP-实现有哪些注解？"><a href="#10-AOP-实现有哪些注解？" class="headerlink" title="10# AOP 实现有哪些注解？"></a>10# AOP 实现有哪些注解？</h2><p>常用的注解包括：</p>
+<ul>
+<li>@Aspect：用于定义切面，标注在切面类上。</li>
+<li>@Pointcut：定义切点，标注在方法上，用于指定连接点。</li>
+<li>@Before：在方法执行之前执行通知。</li>
+<li>@After：在方法执行之后执行通知。</li>
+<li>@Around：在方法执行前后都执行通知。</li>
+<li>@AfterReturning：在方法执行后返回结果后执行通知。</li>
+<li>@AfterThrowing：在方法抛出异常后执行通知。</li>
+<li>@Advice：通用的通知类型，可以替代@Before、@After等。</li>
+</ul>
+<h2 id="11-依赖注入了解吗？怎么实现依赖注入的？"><a href="#11-依赖注入了解吗？怎么实现依赖注入的？" class="headerlink" title="11# 依赖注入了解吗？怎么实现依赖注入的？"></a>11# 依赖注入了解吗？怎么实现依赖注入的？</h2><p>在传统编程中，当一个类需要使用另一个类的对象时，通常会在该类内部通过<code>new</code>关键字来创建依赖对象，这使得类与类之间的耦合度较高。</p>
+<p>而依赖注入则是将对象的创建和依赖关系的管理交给 Spring 容器来完成，类只需要声明自己所依赖的对象，容器会在运行时将这些依赖对象注入到类中，从而降低了类与类之间的耦合度，提高了代码的可维护性和可测试性。</p>
+<p>具体到Spring中，常见的依赖注入的实现方式，比如构造器注入、Setter方法注入，还有字段注入。</p>
+<ul>
+<li>**构造器注入：**通过构造函数传递依赖对象，保证对象初始化时依赖已就绪。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> UserRepository userRepository;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 构造器注入（Spring 4.3+ 自动识别单构造器，无需显式@Autowired）</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserService</span><span class="params">(UserRepository userRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userRepository = userRepository;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**Setter 方法注入：**通过 Setter 方法设置依赖，灵活性高，但依赖可能未完全初始化。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> PaymentGateway gateway;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setGateway</span><span class="params">(PaymentGateway gateway)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.gateway = gateway;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**字段注入：**直接通过 <code>@Autowired</code> 注解字段，代码简洁但隐藏依赖关系，不推荐生产代码。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrderRepository orderRepository;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="12-Bean-的生命周期？"><a href="#12-Bean-的生命周期？" class="headerlink" title="12# Bean 的生命周期？"></a>12# Bean 的生命周期？</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1719570477922-ad595a67-be98-4272-9e13-8ad73dd75c13.png" alt="img"></p>
+<ol>
+<li>Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化</li>
+<li>Bean实例化后对将Bean的引入和值注入到Bean的属性中</li>
+<li>如果Bean实现了BeanNameAware接口的话，Spring将Bean的Id传递给setBeanName()方法</li>
+<li>如果Bean实现了BeanFactoryAware接口的话，Spring将调用setBeanFactory()方法，将BeanFactory容器实例传入</li>
+<li>如果Bean实现了ApplicationContextAware接口的话，Spring将调用Bean的setApplicationContext()方法，将bean所在应用上下文引用传入进来。</li>
+<li>如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessBeforeInitialization()方法。</li>
+<li>如果Bean 实现了InitializingBean接口，Spring将调用他们的afterPropertiesSet()方法。类似的，如果bean使用init-method声明了初始化方法，该方法也会被调用</li>
+<li>如果Bean 实现了BeanPostProcessor接口，Spring就将调用他们的postProcessAfterInitialization()方法。</li>
+<li>此时，Bean已经准备就绪，可以被应用程序使用了。他们将一直驻留在应用上下文中，直到应用上下文被销毁。</li>
+<li>如果bean实现了DisposableBean接口，Spring将调用它的destory()接口方法，同样，如果bean使用了destory-method 声明销毁方法，该方法也会被调用</li>
+</ol>
+<h2 id="13-Bean的作用域有哪些？"><a href="#13-Bean的作用域有哪些？" class="headerlink" title="13# Bean的作用域有哪些？"></a>13# Bean的作用域有哪些？</h2><p>Spring框架中的Bean作用域（Scope）定义了Bean的生命周期和可见性。不同的作用域影响着Spring容器如何管理这些Bean的实例，包括它们如何被创建、如何被销毁以及它们是否可以被多个用户共享。</p>
+<p>Spring支持几种不同的作用域，以满足不同的应用场景需求。以下是一些主要的Bean作用域：</p>
+<ul>
+<li><strong>Singleton（单例）</strong>：在整个应用程序中只存在一个 Bean 实例。默认作用域，Spring 容器中只会创建一个 Bean 实例，并在容器的整个生命周期中共享该实例。</li>
+<li><strong>Prototype（原型）</strong>：每次请求时都会创建一个新的 Bean 实例。次从容器中获取该 Bean 时都会创建一个新实例，适用于状态非常瞬时的 Bean。</li>
+<li><strong>Request（请求）</strong>：每个 HTTP 请求都会创建一个新的 Bean 实例。仅在 Spring Web 应用程序中有效，每个 HTTP 请求都会创建一个新的 Bean 实例，适用于 Web 应用中需求局部性的 Bean。</li>
+<li><strong>Session（会话）</strong>：Session 范围内只会创建一个 Bean 实例。该 Bean 实例在用户会话范围内共享，仅在 Spring Web 应用程序中有效，适用于与用户会话相关的 Bean。</li>
+<li><strong>Application</strong>：当前 ServletContext 中只存在一个 Bean 实例。仅在 Spring Web 应用程序中有效，该 Bean 实例在整个 ServletContext 范围内共享，适用于应用程序范围内共享的 Bean。</li>
+<li><strong>WebSocket（Web套接字）</strong>：在 WebSocket 范围内只存在一个 Bean 实例。仅在支持 WebSocket 的应用程序中有效，该 Bean 实例在 WebSocket 会话范围内共享，适用于 WebSocket 会话范围内共享的 Bean。</li>
+<li><strong>Custom scopes（自定义作用域）</strong>：Spring 允许开发者定义自定义的作用域，通过实现 Scope 接口来创建新的 Bean 作用域。</li>
+</ul>
+<p>在Spring配置文件中，可以通过<code>&lt;bean&gt;</code>标签的scope属性来指定Bean的作用域。例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBeanClass&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;singleton&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在Spring Boot或基于Java的配置中，可以通过@Scope注解来指定Bean的作用域。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span>  </span><br><span class="line"><span class="meta">@Scope(&quot;prototype&quot;)</span>  </span><br><span class="line"><span class="keyword">public</span> MyBeanClass <span class="title function_">myBean</span><span class="params">()</span> &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyBeanClass</span>();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h1><h2 id="1-MVC-分层介绍一下"><a href="#1-MVC-分层介绍一下" class="headerlink" title="1# MVC 分层介绍一下"></a>1# MVC 分层介绍一下</h2><p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。</p>
+<ul>
+<li><strong>视图(view)： 为用户提供使用界面，与用户直接进行交互。</strong></li>
+<li><strong>模型(model)： 代表一个存取数据的对象或 JAVA POJO（Plain Old Java Object，简单java对象）。它也可以带有逻辑，主要用于承载数据，并对用户提交请求进行计算的模块。模型分为两类，一类称为数据承载 Bean，一类称为业务处理Bean。所谓数据承载 Bean 是指实体类（如：User类），专门为用户承载业务数据的；而业务处理 Bean 则是指Service 或 Dao 对象， 专门用于处理用户提交请求的。</strong></li>
+<li><strong>控制器(controller)： 用于将用户请求转发给相应的 Model 进行处理，并根据 Model 的计算结果向用户提供相应响应。它使视图与模型分离。</strong></li>
+</ul>
+<p><img src="https://cdn.xiaolincoding.com//picgo/1713944902120-e35c2b4f-e290-4973-aa1a-3193af3bb371.png" alt="img"></p>
+<p>流程步骤：</p>
+<ol>
+<li><strong>用户通过View 页面向服务端提出请求，可以是表单请求、超链接请求、AJAX 请求等；</strong></li>
+<li><strong>服务端 Controller 控制器接收到请求后对请求进行解析，找到相应的Model，对用户请求进行处理Model 处理；</strong></li>
+<li><strong>将处理结果再交给 Controller（控制器其实只是起到了承上启下的作用）；</strong></li>
+<li><strong>根据处理结果找到要作为向客户端发回的响应View 页面，页面经渲染后发送给客户端。</strong></li>
+</ol>
+<h2 id="2-了解-Spring-MVC-的处理流程吗？"><a href="#2-了解-Spring-MVC-的处理流程吗？" class="headerlink" title="2# 了解 Spring MVC 的处理流程吗？"></a>2# 了解 Spring MVC 的处理流程吗？</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1716791047520-ac0d9673-be0a-4005-8732-30bdedc8f1af.webp" alt="img"></p>
+<p>Spring MVC的工作流程如下：</p>
+<ol>
+<li>用户发送请求至前端控制器DispatcherServlet</li>
+<li>DispatcherServlet收到请求调用处理器映射器HandlerMapping。</li>
+<li>处理器映射器根据请求url找到具体的处理器，生成处理器执行链HandlerExecutionChain(包括处理器对象和处理器拦截器)一并返回给DispatcherServlet。</li>
+<li>DispatcherServlet根据处理器Handler获取处理器适配器HandlerAdapter执行HandlerAdapter处理一系列的操作，如：参数封装，数据格式转换，数据验证等操作</li>
+<li>执行处理器Handler(Controller，也叫页面控制器)。</li>
+<li>Handler执行完成返回ModelAndView</li>
+<li>HandlerAdapter将Handler执行结果ModelAndView返回到DispatcherServlet</li>
+<li>DispatcherServlet将ModelAndView传给ViewReslover视图解析器</li>
+<li>ViewReslover解析后返回具体View</li>
+<li>DispatcherServlet对View进行渲染视图（即将模型数据model填充至视图中）。</li>
+<li>DispatcherServlet响应用户。</li>
+</ol>
+<p><strong>简单记忆</strong></p>
+<ol>
+<li>请求进入 <strong>DispatcherServlet</strong>。</li>
+<li>DispatcherServlet → HandlerMapping：找到 Controller 和方法。</li>
+<li>HandlerAdapter 调用对应的 Controller 方法。</li>
+<li>方法执行后返回 ModelAndView。</li>
+<li>DispatcherServlet → ViewResolver：解析视图。</li>
+<li>渲染结果返回给客户端。</li>
+</ol>
+<p>简化答法：<strong>前端控制器 → 映射 → 适配器 → 控制器 → 视图解析器 → 返回结果</strong>。</p>
+<h2 id="3-拦截器和过滤器的区别？"><a href="#3-拦截器和过滤器的区别？" class="headerlink" title="3# 拦截器和过滤器的区别？"></a>3# 拦截器和过滤器的区别？</h2><ul>
+<li><strong>拦截器（Interceptor）</strong>：Spring MVC 提供，基于 <strong>AOP</strong>，拦截的是 <strong>Controller 方法</strong>，只能拦 HTTP 请求。</li>
+<li><strong>过滤器（Filter）</strong>：Servlet 规范提供，拦截的是 <strong>所有资源</strong>（包括 JSP、静态资源、Servlet）。</li>
+<li>生命周期：<ul>
+<li>过滤器由容器（Tomcat）管理。</li>
+<li>拦截器由 Spring 容器管理。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-你是怎么做全局异常处理的？"><a href="#4-你是怎么做全局异常处理的？" class="headerlink" title="4# 你是怎么做全局异常处理的？"></a>4# 你是怎么做全局异常处理的？</h2><ul>
+<li>使用 <code>@ControllerAdvice + @ExceptionHandler</code>。</li>
+<li>好处：统一返回格式，避免到处写 <code>try-catch</code>。</li>
+<li>典型写法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@ControllerAdvice</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line">    @ExceptionHandler(Exception.class)</span><br><span class="line">    public ResponseEntity&lt;String&gt; handle(Exception e) &#123;</span><br><span class="line">        return ResponseEntity.status(500).body(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="1-自动装配原理是什么？"><a href="#1-自动装配原理是什么？" class="headerlink" title="1# 自动装配原理是什么？"></a>1# 自动装配原理是什么？</h2><p><strong>自动装配是什么？</strong></p>
+<p>自动装配就是 <strong>Spring Boot 根据引入的依赖和配置，自动帮我们把相关的 Bean 装配到 IoC 容器中</strong>，省去了繁琐的 XML 或 @Bean 配置。比如只要引入 spring-boot-starter-data-redis 依赖，就能直接使用 RedisTemplate。</p>
+<hr>
+<p><strong>自动装配原理（核心流程）</strong></p>
+<ol>
+<li><strong>入口注解</strong><ul>
+<li><code>@SpringBootApplication = @SpringBootConfiguration + @EnableAutoConfiguration + @ComponentScan</code></li>
+<li>其中 <strong><code>@EnableAutoConfiguration</code> 是核心</strong>。</li>
+</ul>
+</li>
+<li><strong>关键机制</strong><ul>
+<li><code>@EnableAutoConfiguration</code> → <code>@Import(AutoConfigurationImportSelector.class)</code></li>
+<li><code>AutoConfigurationImportSelector</code> 的作用：<ul>
+<li><strong>扫描</strong>：从 <code>META-INF/spring.factories</code> 里读取所有自动配置类</li>
+<li><strong>过滤</strong>：根据 <code>@ConditionalOnXxx</code> 条件注解筛选（类存在、配置开关、Bean 存在等）</li>
+<li><strong>排序</strong>：根据 <code>@AutoConfigureOrder</code>、<code>@AutoConfigureBefore/After</code> 排序</li>
+<li><strong>导入</strong>：把满足条件的自动配置类注册到 IoC 容器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>条件装配</strong><ul>
+<li>自动配置类里常用 <code>@ConditionalOnXxx</code> 注解，比如：<ul>
+<li><code>@ConditionalOnClass</code>（类存在才装配）</li>
+<li><code>@ConditionalOnMissingBean</code>（没有 Bean 才装配）</li>
+<li><code>@ConditionalOnProperty</code>（配置开启才装配）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>总结口诀</strong></p>
+<ul>
+<li><strong>入口</strong>：<code>@SpringBootApplication</code></li>
+<li><strong>核心</strong>：<code>@EnableAutoConfiguration</code></li>
+<li><strong>关键类</strong>：<code>AutoConfigurationImportSelector</code></li>
+<li><strong>步骤</strong>：扫描 → 过滤 → 排序 → 导入</li>
+<li><strong>依据</strong>：<code>META-INF/spring.factories</code> + <code>@ConditionalOnXxx</code></li>
+</ul>
+<h2 id="2-Spring-Boot-有哪些重要的注解？"><a href="#2-Spring-Boot-有哪些重要的注解？" class="headerlink" title="2# Spring Boot 有哪些重要的注解？"></a>2# Spring Boot 有哪些重要的注解？</h2><p>Spring Boot 中一些常用的注解包括：</p>
+<ul>
+<li><strong>@SpringBootApplication</strong>：用于标注主应用程序类，标识一个Spring Boot应用程序的入口点，同时启用自动配置和组件扫描。</li>
+<li><strong>@Controller</strong>：标识控制器类，处理HTTP请求。</li>
+<li><strong>@RestController</strong>：结合@Controller和@ResponseBody，返回RESTful风格的数据。</li>
+<li><strong>@Service</strong>：标识服务类，通常用于标记业务逻辑层。</li>
+<li><strong>@Repository</strong>：标识数据访问组件，通常用于标记数据访问层。</li>
+<li><strong>@Component</strong>：通用的Spring组件注解，表示一个受Spring管理的组件。</li>
+<li><strong>@Autowired</strong>：用于自动装配Spring Bean。</li>
+<li><strong>@Value</strong>：用于注入配置属性值。</li>
+<li><strong>@RequestMapping</strong>：用于映射HTTP请求路径到Controller的处理方法。</li>
+<li><strong>@GetMapping</strong>、@PostMapping、@PutMapping、@DeleteMapping：简化@RequestMapping的GET、POST、PUT和DELETE请求。</li>
+</ul>
+<p>另外，一个与配置相关的重要注解是：</p>
+<ul>
+<li><strong>@Configuration</strong>：用于指定一个类为配置类，其中定义的bean会被Spring容器管理。通常与@Bean配合使用，@Bean用于声明一个Bean实例，由Spring容器进行管理。</li>
+</ul>
+<h2 id="3-Spring-Boot-怎么开启事务？"><a href="#3-Spring-Boot-怎么开启事务？" class="headerlink" title="3# Spring Boot 怎么开启事务？"></a>3# Spring Boot 怎么开启事务？</h2><p>在 Spring Boot 中开启事务非常简单，只需在服务层的方法上添加 <code>@Transactional</code> 注解即可。</p>
+<p>例如，假设我们有一个 UserService 接口，其中有一个保存用户的方法 saveUser()：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">saveUser</span><span class="params">(User user)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们希望在这个方法中开启事务，只需在该方法上添加 <code>@Transactional</code> 注解，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">saveUser</span><span class="params">(User user)</span> &#123;</span><br><span class="line">        userRepository.save(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，当调用 saveUser() 方法时，Spring 就会自动为该方法开启一个事务。如果方法执行成功，事务会自动提交；如果方法执行失败，事务会自动回滚。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-Spring-Boot-怎么做到导入就可以直接使用的？"><a href="#4-Spring-Boot-怎么做到导入就可以直接使用的？" class="headerlink" title="4# Spring Boot 怎么做到导入就可以直接使用的？"></a>4# Spring Boot 怎么做到导入就可以直接使用的？</h2><p>这个主要依赖于自动配置、起步依赖和条件注解等特性。</p>
+<p><strong>起步依赖</strong></p>
+<p>起步依赖是一种特殊的 Maven 或 Gradle 依赖，它将项目所需的一系列依赖打包在一起。例如，<code>spring-boot-starter-web</code> 这个起步依赖就包含了 Spring Web MVC、Tomcat 等构建 Web 应用所需的核心依赖。</p>
+<p>开发者只需在项目中添加一个起步依赖，Maven 或 Gradle 就会自动下载并管理与之关联的所有依赖，避免了手动添加大量依赖的繁琐过程。</p>
+<p>比如，在 <code>pom.xml</code> 中添加 <code>spring-boot-starter-web</code> 依赖：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>自动配置</strong></p>
+<p>Spring Boot 的自动配置机制会根据类路径下的依赖和开发者的配置，自动创建和配置应用所需的 Bean。它通过 <code>@EnableAutoConfiguration</code> 注解启用，该注解会触发 Spring Boot 去查找 <code>META - INF/spring.factories</code> 文件。</p>
+<p><code>spring.factories</code> 文件中定义了一系列自动配置类，Spring Boot 会根据当前项目的依赖情况，选择合适的自动配置类进行加载。例如，如果项目中包含 <code>spring-boot-starter-web</code> 依赖，Spring Boot 会加载 <code>WebMvcAutoConfiguration</code> 类，该类会自动配置 Spring MVC 的相关组件，如 DispatcherServlet、视图解析器等。</p>
+<p>开发者可以通过自定义配置来覆盖自动配置的默认行为。如果开发者在 <code>application.properties</code> 或 <code>application.yml</code> 中定义了特定的配置，或者在代码中定义了同名的 Bean，Spring Boot 会优先使用开发者的配置。</p>
+<hr>
+<p><strong>条件注解</strong></p>
+<p>条件注解用于控制 Bean 的创建和加载，只有在满足特定条件时，才会创建相应的 Bean。Spring Boot 的自动配置类中广泛使用了条件注解，如 <code>@ConditionalOnClass</code>、<code>@ConditionalOnMissingBean</code> 等。</p>
+<p>比如，<code>@ConditionalOnClass</code> 表示只有当类路径中存在指定的类时，才会创建该 Bean。例如，在 <code>WebMvcAutoConfiguration</code> 类中，可能会有如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnClass(&#123; Servlet.class, DispatcherServlet.class, WebMvcConfigurer.class &#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebMvcAutoConfiguration</span> &#123;</span><br><span class="line">    <span class="comment">// 配置相关的 Bean</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码表示只有当类路径中存在 <code>Servlet</code>、<code>DispatcherServlet</code> 和 <code>WebMvcConfigurer</code> 类时，才会加载 <code>WebMvcAutoConfiguration</code> 类中的配置。</p>
+<h2 id="5-Spring-Boot-过滤器和拦截器说一下？"><a href="#5-Spring-Boot-过滤器和拦截器说一下？" class="headerlink" title="5# Spring Boot 过滤器和拦截器说一下？"></a>5# Spring Boot 过滤器和拦截器说一下？</h2><p>在 Spring Boot 中，过滤器（Filter）和拦截器（Interceptor）是用于处理请求和响应的两种不同机制。</p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>过滤器（Filter）</strong></th>
+<th><strong>拦截器（Interceptor）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>规范&#x2F;框架</strong></td>
+<td>Servlet规范（<code>javax.servlet.Filter</code>）</td>
+<td>Spring MVC框架（<code>org.springframework.web.servlet.HandlerInterceptor</code>）</td>
+</tr>
+<tr>
+<td><strong>作用范围</strong></td>
+<td>全局（所有请求、静态资源）</td>
+<td>Controller层（仅拦截Spring管理的请求）</td>
+</tr>
+<tr>
+<td><strong>执行顺序</strong></td>
+<td>在Servlet之前执行</td>
+<td>在DispatcherServlet之后、Controller方法前后执行</td>
+</tr>
+<tr>
+<td><strong>依赖注入支持</strong></td>
+<td>无法直接注入Spring Bean（需间接获取）</td>
+<td>支持自动注入Spring Bean</td>
+</tr>
+<tr>
+<td><strong>触发时机</strong></td>
+<td><code>doFilter()</code>在请求前&#x2F;响应后被调用</td>
+<td><code>preHandle</code>、<code>postHandle</code>、<code>afterCompletion</code>分阶段触发</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>全局请求处理（编码、日志、安全）</td>
+<td>业务逻辑相关的处理（权限、参数校验）</td>
+</tr>
+</tbody></table>
+<p>过滤器是 Java Servlet 规范中的一部分，它可以对进入 Servlet 容器的请求和响应进行预处理和后处理。过滤器通过实现 <code>javax.servlet.Filter</code> 接口，并重写其中的 <code>init</code>、<code>doFilter</code> 和 <code>destroy</code> 方法来完成相应的逻辑。当请求进入 Servlet 容器时，会按照配置的顺序依次经过各个过滤器，然后再到达目标 Servlet 或控制器；响应返回时，也会按照相反的顺序再次经过这些过滤器。</p>
+<p>拦截器是 Spring 框架提供的一种机制，它可以对控制器方法的执行进行拦截。拦截器通过实现 <code>org.springframework.web.servlet.HandlerInterceptor</code> 接口，并重写其中的 <code>preHandle</code>、<code>postHandle</code> 和 <code>afterCompletion</code> 方法来完成相应的逻辑。当请求到达控制器时，会先经过拦截器的 <code>preHandle</code> 方法，如果该方法返回 <code>true</code>，则继续执行后续的控制器方法和其他拦截器；在控制器方法执行完成后，会调用拦截器的 <code>postHandle</code> 方法；最后，在请求处理完成后，会调用拦截器的 <code>afterCompletion</code> 方法。</p>
+<p>过滤器和拦截器的区别如下：</p>
+<ul>
+<li><strong>所属规范</strong>：过滤器是 Java Servlet 规范的一部分，而拦截器是 Spring 框架提供的机制。</li>
+<li><strong>执行顺序</strong>：过滤器在请求进入 Servlet 容器后，在到达目标 Servlet 或控制器之前执行；拦截器在请求到达控制器之后，在控制器方法执行前后执行。</li>
+<li><strong>使用范围</strong>：过滤器可以对所有类型的请求进行过滤，包括静态资源请求；拦截器只能对 Spring MVC 控制器的请求进行拦截。</li>
+<li><strong>功能特性</strong>：过滤器主要用于对请求和响应进行预处理和后处理，如字符编码处理、请求日志记录等；拦截器可以更细粒度地控制控制器方法的执行，如权限验证、性能监控等。</li>
+</ul>
+<h2 id="6-Spring-Boot-为什么能开箱即用？"><a href="#6-Spring-Boot-为什么能开箱即用？" class="headerlink" title="6# Spring Boot 为什么能开箱即用？"></a>6# Spring Boot 为什么能开箱即用？</h2><ul>
+<li><strong>自动配置</strong>：根据依赖和配置文件，自动帮你创建 Bean。</li>
+<li><strong>Starter 机制</strong>：常用功能打包成 Starter，加入依赖就能用。</li>
+<li>内嵌 Tomcat&#x2F;Jetty，直接运行 <code>main</code> 方法即可启动。</li>
+</ul>
+<h2 id="7-Spring-Boot-自动配置是怎么实现的？"><a href="#7-Spring-Boot-自动配置是怎么实现的？" class="headerlink" title="7# Spring Boot 自动配置是怎么实现的？"></a>7# Spring Boot 自动配置是怎么实现的？</h2><ul>
+<li>关键注解：<code>@EnableAutoConfiguration</code>（被 <code>@SpringBootApplication</code> 包含）。</li>
+<li>它会扫描 <code>META-INF/spring.factories</code> 文件，把里面声明的 <code>@Configuration</code> 类加载进来。</li>
+<li>配合 <code>@ConditionalOnClass</code> &#x2F; <code>@ConditionalOnMissingBean</code> 等条件注解，决定是否生效。</li>
+</ul>
+<h2 id="8-Starter-的原理？"><a href="#8-Starter-的原理？" class="headerlink" title="8# Starter 的原理？"></a>8# Starter 的原理？</h2><ul>
+<li>Starter 本质就是一个 <strong>Maven 依赖 + 自动配置类</strong>。</li>
+<li>里面写好依赖库、配置类，Spring Boot 会自动加载。</li>
+<li>例子：<code>spring-boot-starter-web</code> → 自动配置 Spring MVC、Tomcat。</li>
+</ul>
+<h1 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h1><h2 id="1-与传统的-JDBC-相比，MyBatis-的优点？"><a href="#1-与传统的-JDBC-相比，MyBatis-的优点？" class="headerlink" title="1# 与传统的 JDBC 相比，MyBatis 的优点？"></a>1# 与传统的 JDBC 相比，MyBatis 的优点？</h2><ul>
+<li>基于 SQL 语句编程，相当灵活，不会对应用程序或者数据库的现有设计造成任 何影响，SQL 写在 XML 里，解除 sql 与程序代码的耦合，便于统一管理；提供 XML 标签，支持编写动态 SQL 语句，并可重用。</li>
+<li>与 JDBC 相比，减少了 50%以上的代码量，消除了 JDBC 大量冗余的代码，不 需要手动开关连接；</li>
+<li>很好的与各种数据库兼容，因为 MyBatis 使用 JDBC 来连接数据库，所以只要 JDBC 支持的数据库 MyBatis 都支持。</li>
+<li>能够与 Spring 很好的集成，开发效率高</li>
+<li>提供映射标签，支持对象与数据库的 ORM 字段关系映射；提供对象关系映射 标签，支持对象关系组件维护。</li>
+</ul>
+<h2 id="9-MyBatis-和-Hibernate-的区别？"><a href="#9-MyBatis-和-Hibernate-的区别？" class="headerlink" title="9. MyBatis 和 Hibernate 的区别？"></a>9. MyBatis 和 Hibernate 的区别？</h2><ul>
+<li>Hibernate：全自动 ORM，SQL 由框架生成。开发效率高，但 SQL 不可控。</li>
+<li>MyBatis：半自动 ORM，SQL 需要开发者写，灵活、可控，性能调优方便。</li>
+</ul>
+<h2 id="10-MyBatis-一级缓存、二级缓存原理？"><a href="#10-MyBatis-一级缓存、二级缓存原理？" class="headerlink" title="10. MyBatis 一级缓存、二级缓存原理？"></a>10. MyBatis 一级缓存、二级缓存原理？</h2><ul>
+<li><strong>一级缓存</strong>：默认开启，作用域是 <code>SqlSession</code>。同一个会话内执行相同 SQL，会从缓存中取。</li>
+<li><strong>二级缓存</strong>：需要手动开启，作用域是 Mapper namespace，多个 SqlSession 共享。</li>
+<li>原理：查询结果存入 <code>Map</code>，key 是 SQL + 参数。</li>
+</ul>
+<h2 id="11-MyBatis-是如何把接口方法和-SQL-绑定的？（动态代理）"><a href="#11-MyBatis-是如何把接口方法和-SQL-绑定的？（动态代理）" class="headerlink" title="11. MyBatis 是如何把接口方法和 SQL 绑定的？（动态代理）"></a>11. MyBatis 是如何把接口方法和 SQL 绑定的？（动态代理）</h2><ul>
+<li>MyBatis 会为 Mapper 接口生成 <strong>JDK 动态代理对象</strong>。</li>
+<li>代理对象执行时，会根据方法名找到对应的 <strong>MappedStatement（SQL 映射）</strong>，再交给 Executor 执行。</li>
+</ul>
+<h1 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h1><h2 id="1-了解-Spring-Cloud-吗，说一下他和-Spring-Boot-的区别"><a href="#1-了解-Spring-Cloud-吗，说一下他和-Spring-Boot-的区别" class="headerlink" title="1# 了解 Spring Cloud 吗，说一下他和 Spring Boot 的区别"></a>1# 了解 Spring Cloud 吗，说一下他和 Spring Boot 的区别</h2><p>Spring Boot是用于构建单个Spring应用的框架，而Spring Cloud则是用于构建分布式系统中的微服务架构的工具，Spring Cloud提供了服务注册与发现、负载均衡、断路器、网关等功能。</p>
+<p>两者可以结合使用，通过Spring Boot构建微服务应用，然后用Spring Cloud来实现微服务架构中的各种功能。</p>
+<h2 id="2-用过哪些微服务组件？"><a href="#2-用过哪些微服务组件？" class="headerlink" title="2# 用过哪些微服务组件？"></a>2# 用过哪些微服务组件？</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1715933382453-968d55a3-059b-423d-9f67-0ebf732fc400.png" alt="img"></p>
+<p>微服务常用的组件：</p>
+<ul>
+<li><strong>注册中心</strong>：注册中心是微服务架构最核心的组件。它起到的作用是对新节点的注册与状态维护，<strong>解决了「如何发现新节点以及检查各节点的运行状态的问题」</strong>。微服务节点在启动时会将自己的服务名称、IP、端口等信息在注册中心登记，注册中心会定时检查该节点的运行状态。注册中心通常会采用心跳机制最大程度保证已登记过的服务节点都是可用的。</li>
+<li><strong>负载均衡</strong>：负载均衡<strong>解决了「如何发现服务及负载均衡如何实现的问题」</strong>，通常微服务在互相调用时，并不是直接通过IP、端口进行访问调用。而是先通过服务名在注册中心查询该服务拥有哪些节点，注册中心将该服务可用节点列表返回给服务调用者，这个过程叫服务发现，因服务高可用的要求，服务调用者会接收到多个节点，必须要从中进行选择。因此服务调用者一端必须内置负载均衡器，通过负载均衡策略选择合适的节点发起实质性的通信请求。</li>
+<li><strong>服务通信</strong>：服务通信组件解决了「<strong>服务间如何进行消息通信的问题</strong>」，服务间通信采用轻量级协议，通常是HTTP RESTful风格。但因为RESTful风格过于灵活，必须加以约束，通常应用时对其封装。例如在SpringCloud中就提供了Feign和RestTemplate两种技术屏蔽底层的实现细节，所有开发者都是基于封装后统一的SDK进行开发，有利于团队间的相互合作。</li>
+<li><strong>配置中心</strong>：配置中心主要解决了「<strong>如何集中管理各节点配置文件的问题</strong>」，在微服务架构下，所有的微服务节点都包含自己的各种配置文件，如jdbc配置、自定义配置、环境配置、运行参数配置等。要知道有的微服务可能可能有几十个节点，如果将这些配置文件分散存储在节点上，发生配置更改就需要逐个节点调整，将给运维人员带来巨大的压力。配置中心便由此而生，通过部署配置中心服务器，将各节点配置文件从服务中剥离，集中转存到配置中心。一般配置中心都有UI界面，方便实现大规模集群配置调整。</li>
+<li><strong>集中式日志管理</strong>：集中式日志主要是解决了「<strong>如何收集各节点日志并统一管理的问题</strong>」。微服务架构默认将应用日志分别保存在部署节点上，当需要对日志数据和操作数据进行数据分析和数据统计时，必须收集所有节点的日志数据。那么怎么高效收集所有节点的日志数据呢？业内常见的方案有ELK、EFK。通过搭建独立的日志收集系统，定时抓取各节点增量日志形成有效的统计报表，为统计和分析提供数据支撑。</li>
+<li>分布式链路追踪：分布式链路追踪解决了「<strong>如何直观的了解各节点间的调用链路的问题</strong>」。系统中一个复杂的业务流程，可能会出现连续调用多个微服务，我们需要了解完整的业务逻辑涉及的每个微服务的运行状态，通过可视化链路图展现，可以帮助开发人员快速分析系统瓶颈及出错的服务。</li>
+<li><strong>服务保护</strong>：服务保护主要是解决了「<strong>如何对系统进行链路保护，避免服务雪崩的问题</strong>」。在业务运行时，微服务间互相调用支撑，如果某个微服务出现高延迟导致线程池满载，或是业务处理失败。这里就需要引入服务保护组件来实现高延迟服务的快速降级，避免系统崩溃。</li>
+</ul>
+<p>SpringCloud Alibaba实现的微服务架构：</p>
+<p><img src="https://cdn.xiaolincoding.com//picgo/1715933831252-4dbe4ae0-8072-4512-b54b-39ea5e8b3153.png" alt="img"></p>
+<ul>
+<li>SpringCloud Alibaba中使用<strong>Alibaba Nacos</strong>组件实现<strong>注册中心</strong>，Nacos提供了一组简单易用的特性集，可快速实现动态服务发现、服务配置、服务元数据及流量管理。</li>
+<li>SpringCloud Alibaba 使用<strong>Nacos服务端均衡</strong>实现负载均衡，与Ribbon在调用端负载不同，Nacos是在服务发现的同时利用负载均衡返回服务节点数据。</li>
+<li>SpringCloud Alibaba 使用<strong>Netflix Feign</strong>和<strong>Alibaba Dubbo</strong>组件来实现服务通行，前者与SpringCloud采用了相同的方案，后者则是对自家的<strong>RPC 框架Dubbo</strong>也给予支持，为服务间通信提供另一种选择。</li>
+<li>SpringCloud Alibaba 在<strong>API服务网关</strong>组件中，使用与SpringCloud相同的组件，即：<strong>SpringCloud Gateway</strong>。</li>
+<li>SpringCloud Alibaba在配置中心组件中使用<strong>Nacos内置配置中心</strong>，Nacos内置的配置中心，可将配置信息<strong>存储保存在指定数据库</strong>中</li>
+<li>SpringCloud Alibaba在原有的<strong>ELK方案</strong>外，还可以使用阿里云日志服务（LOG）实现日志集中式管理。</li>
+<li>SpringCloud Alibaba在<strong>分布式链路组件</strong>中采用与SpringCloud相同的方案，即：<strong>Sleuth&#x2F;Zipkin Server</strong>。</li>
+<li>SpringCloud Alibaba使用<strong>Alibaba Sentinel</strong>实现系统保护，Sentinel不仅功能更强大，实现系统保护比Hystrix更优雅，而且还拥有更好的UI界面。</li>
+</ul>
+<h2 id="12-注册中心宕机了怎么办？"><a href="#12-注册中心宕机了怎么办？" class="headerlink" title="12. 注册中心宕机了怎么办？"></a>12. 注册中心宕机了怎么办？</h2><ul>
+<li><strong>Eureka</strong>：有自我保护机制，短时间内还能维持服务发现。</li>
+<li><strong>Nacos</strong>：支持 AP&#x2F;CP 切换，推荐部署集群，避免单点故障。</li>
+</ul>
+<h2 id="13-Feign-是怎么实现远程调用的？"><a href="#13-Feign-是怎么实现远程调用的？" class="headerlink" title="13. Feign 是怎么实现远程调用的？"></a>13. Feign 是怎么实现远程调用的？</h2><ul>
+<li>本质是 <strong>声明式 HTTP 客户端</strong>。</li>
+<li>通过 JDK 动态代理，拦截接口方法调用 → 构造 HTTP 请求 → 发送远程调用。</li>
+<li>底层默认用 Ribbon（负载均衡）+ RestTemplate，或者 OpenFeign + HTTPClient。</li>
+</ul>
+<h2 id="14-Gateway-的核心功能？"><a href="#14-Gateway-的核心功能？" class="headerlink" title="14. Gateway 的核心功能？"></a>14. Gateway 的核心功能？</h2><ul>
+<li>路由转发：请求 → 目标服务。</li>
+<li>过滤器：日志、权限校验、参数处理。</li>
+<li>负载均衡：整合注册中心，实现动态路由。</li>
+<li>限流熔断：基于 Resilience4j、Redis 实现。</li>
+</ul>
+<h2 id="15-你们项目里怎么做统一鉴权的？"><a href="#15-你们项目里怎么做统一鉴权的？" class="headerlink" title="15. 你们项目里怎么做统一鉴权的？"></a>15. 你们项目里怎么做统一鉴权的？</h2><ul>
+<li>在 <strong>Gateway</strong> 里加全局过滤器：<ul>
+<li>拦截请求，校验 Token（JWT&#x2F;Redis）。</li>
+<li>不通过 → 拦截返回 401。</li>
+<li>通过 → 请求继续转发到微服务。</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-配置中心怎么实现动态刷新？"><a href="#16-配置中心怎么实现动态刷新？" class="headerlink" title="16. 配置中心怎么实现动态刷新？"></a>16. 配置中心怎么实现动态刷新？</h2><ul>
+<li>Spring Cloud Config &#x2F; Nacos Config 支持 <strong>长轮询&#x2F;消息推送</strong>。</li>
+<li>Spring Boot 应用里加 <code>@RefreshScope</code>，当配置中心推送更新时，Bean 会重新加载配置。</li>
+</ul>
+<h2 id="17-什么是服务雪崩？怎么解决？"><a href="#17-什么是服务雪崩？怎么解决？" class="headerlink" title="17. 什么是服务雪崩？怎么解决？"></a>17. 什么是服务雪崩？怎么解决？</h2><ul>
+<li><strong>服务雪崩</strong>：一个服务不可用，导致调用它的服务阻塞，最终整个系统不可用。</li>
+<li>解决办法：<ul>
+<li>限流（RateLimit）</li>
+<li>熔断（CircuitBreaker）</li>
+<li>隔离（线程池&#x2F;舱壁模式）</li>
+<li>降级（返回默认结果）</li>
+</ul>
+</li>
+</ul>
+<h2 id="18-熔断和限流有什么区别？"><a href="#18-熔断和限流有什么区别？" class="headerlink" title="18. 熔断和限流有什么区别？"></a>18. 熔断和限流有什么区别？</h2><ul>
+<li><strong>熔断</strong>：下游服务不可用时，快速失败，避免请求堆积。</li>
+<li><strong>限流</strong>：控制请求流量（QPS），保护系统不被压垮。</li>
+<li>类比：<ul>
+<li>熔断 &#x3D; 停电时保险丝断开。</li>
+<li>限流 &#x3D; 水龙头限流阀。</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/09/11/boilerplate-answers-4-java-jvm/" rel="prev" title="八股文笔记 #4 Java JVM">
+                  <i class="fa fa-angle-left"></i> 八股文笔记 #4 Java JVM
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2024 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Marnumon</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">114k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6:54</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div><script color="150,0,255" opacity="0.5" zIndex="-1" count="64" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Marnumon" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Marnumon","repo":"blog-comments","client_id":"Ov23liskioUxOHwH9wCv","client_secret":"09fa60a57fa00d2a18c0f7d36df7332f5a659915","admin_user":"Marnumon","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"dddc193cc31598b0ab122acddbabd91b"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>
