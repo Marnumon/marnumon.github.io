@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -2427,7 +2427,7 @@
 <p><strong>复杂度分析</strong></p>
 <p>时间复杂度：时间复杂度为 O(log n)，其中 n 是数组 nums 的长度。在二分查找的过程中，每一步会忽略一半的区间，因此时间复杂度为 O(log n)。</p>
 <p>空间复杂度：O(1)。</p>
-<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="20. 有效的括号"></a>20. 有效的括号</h2><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;&#123;&#39;</code>，<code>&#39;&#125;&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串 <code>s</code> ，判断字符串是否有效。</p>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="20. 有效的括号"></a>20. 有效的括号</h2><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;{&#39;</code>，<code>&#39;}&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串 <code>s</code> ，判断字符串是否有效。</p>
 <p>有效字符串需满足：</p>
 <ol>
 <li>左括号必须用相同类型的右括号闭合。</li>
@@ -2452,13 +2452,13 @@
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>1 &lt;= s.length &lt;= 104</code></li>
-<li><code>s</code> 仅由括号 <code>&#39;()[]&#123;&#125;&#39;</code> 组成</li>
+<li><code>s</code> 仅由括号 <code>&#39;()[]{}&#39;</code> 组成</li>
 </ul>
 <p><strong>解题思路</strong></p>
 <p>栈的使用：我们遍历字符串中的每个字符：</p>
 <ul>
-<li>如果是左括号（<code>(</code>, <code>&#123;</code>, <code>[</code>），则将其压入栈中。</li>
-<li>如果是右括号（<code>)</code>, <code>&#125;</code>, <code>]</code>），则判断栈顶是否有对应的左括号。如果有，弹出栈顶的左括号；如果没有，则说明括号不匹配，返回 <code>false</code>。</li>
+<li>如果是左括号（<code>(</code>, <code>{</code>, <code>[</code>），则将其压入栈中。</li>
+<li>如果是右括号（<code>)</code>, <code>}</code>, <code>]</code>），则判断栈顶是否有对应的左括号。如果有，弹出栈顶的左括号；如果没有，则说明括号不匹配，返回 <code>false</code>。</li>
 </ul>
 <p>最后检查：遍历结束后，如果栈为空，说明所有的括号都成功匹配并闭合，返回 <code>true</code>；否则，返回 <code>false</code>。</p>
 <p><strong>代码实现</strong></p>

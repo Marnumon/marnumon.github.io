@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -893,7 +893,7 @@
 <tr>
 <td><strong>函数式接口</strong></td>
 <td>仅含一个抽象方法的接口，可用 <code>@FunctionalInterface</code> 注解标记</td>
-<td><code>Runnable</code>, <code>Comparator</code> 或自定义接口 <code>@FunctionalInterface interface MyFunc &#123; void run(); &#125;</code></td>
+<td><code>Runnable</code>, <code>Comparator</code> 或自定义接口 <code>@FunctionalInterface interface MyFunc { void run(); }</code></td>
 </tr>
 <tr>
 <td><strong>Stream API</strong></td>
@@ -913,7 +913,7 @@
 <tr>
 <td><strong>接口的默认方法与静态方法</strong></td>
 <td>接口可定义默认实现和静态方法，增强扩展性</td>
-<td><code>interface A &#123; default void print() &#123; System.out.println(&quot;默认方法&quot;); &#125; &#125;</code></td>
+<td><code>interface A { default void print() { System.out.println(&quot;默认方法&quot;); } }</code></td>
 </tr>
 <tr>
 <td><strong>并行数组排序</strong></td>
@@ -939,7 +939,7 @@
 <h2 id="2-Lambda-表达式了解吗？"><a href="#2-Lambda-表达式了解吗？" class="headerlink" title="2# Lambda 表达式了解吗？"></a>2# Lambda 表达式了解吗？</h2><p>Lambda 表达式是一种简洁的语法，用于创建匿名函数，主要用于简化函数式接口（只有一个抽象方法的接口）的使用。其基本语法有以下两种形式：</p>
 <ul>
 <li><strong><code>(parameters) -&gt; expression</code></strong>：当 Lambda 体只有一个表达式时使用，表达式的结果会作为返回值</li>
-<li><strong><code>(parameters) -&gt; &#123; statements; &#125;</code></strong>：当 Lambda 体包含多条语句时，需要使用大括号将语句括起来，若有返回值则需要使用 <code>return</code> 语句</li>
+<li><strong><code>(parameters) -&gt; { statements; }</code></strong>：当 Lambda 体包含多条语句时，需要使用大括号将语句括起来，若有返回值则需要使用 <code>return</code> 语句</li>
 </ul>
 <p>传统的匿名内部类实现方式代码较为冗长，<strong>而 Lambda 表达式可以用更简洁的语法实现相同的功能</strong>。例如，使用匿名内部类实现 <code>Runnable</code> 接口：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AnonymousClassExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Running using anonymous class&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        t1.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1002,8 +1002,8 @@
 <h2 id="6-Java-21-新特性知道哪些？"><a href="#6-Java-21-新特性知道哪些？" class="headerlink" title="6# Java 21 新特性知道哪些？"></a>6# Java 21 新特性知道哪些？</h2><p><strong>新语言特性</strong>：</p>
 <ol>
 <li><strong>Switch 语句的模式匹配</strong>：该功能在 Java 21 中也得到了增强。它允许在 <code>switch</code> 的 <code>case</code> 标签中使用模式匹配，使操作更加灵活和类型安全，减少了样板代码和潜在错误。例如：对于不同类型的账户类，可以在 <code>switch</code> 语句中直接根据账户类型的模式来获取相应的余额，如 <code>case savingsAccount sa -&gt; result = sa.getSavings();</code></li>
-<li><strong>数组模式</strong>：将模式匹配扩展到数组中，使开发者能够在条件语句中更高效地解构和检查数组内容。例如：<code>if (arr instanceof int[] &#123;1, 2, 3&#125;)</code>，可以直接判断数组 <code>arr</code> 是否匹配指定的模式</li>
-<li><strong>字符串模板（预览版）</strong>：提供了一种更可读、更易维护的方式来构建复杂字符串，支持在字符串字面量中直接嵌入表达式。例如，以前可能需要使用 <code>&quot;hello &quot; + name + &quot;, welcome to the geeksforgeeks!&quot;</code> 这样的方式来拼接字符串，在 Java 21 中可以使用  <code>hello &#123;name&#125;, welcome to the geeksforgeeks!</code> 这种更简洁的写法</li>
+<li><strong>数组模式</strong>：将模式匹配扩展到数组中，使开发者能够在条件语句中更高效地解构和检查数组内容。例如：<code>if (arr instanceof int[] {1, 2, 3})</code>，可以直接判断数组 <code>arr</code> 是否匹配指定的模式</li>
+<li><strong>字符串模板（预览版）</strong>：提供了一种更可读、更易维护的方式来构建复杂字符串，支持在字符串字面量中直接嵌入表达式。例如，以前可能需要使用 <code>&quot;hello &quot; + name + &quot;, welcome to the geeksforgeeks!&quot;</code> 这样的方式来拼接字符串，在 Java 21 中可以使用  <code>hello {name}, welcome to the geeksforgeeks!</code> 这种更简洁的写法</li>
 </ol>
 <p><strong>新并发特性方面</strong>：</p>
 <ol>
