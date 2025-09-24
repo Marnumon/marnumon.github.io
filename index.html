@@ -475,7 +475,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="1-说一下你对-Spring-的理解"><a href="#1-说一下你对-Spring-的理解" class="headerlink" title="1# 说一下你对 Spring 的理解"></a>1# 说一下你对 Spring 的理解</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1712650311366-b499469c-5afd-4be9-bad3-d787de86bf98.png" alt="img"></p>
+          <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="1-说一下你对-Spring-的理解"><a href="#1-说一下你对-Spring-的理解" class="headerlink" title="1# 说一下你对 Spring 的理解"></a>1# 说一下你对 Spring 的理解</h2><p>Spring框架核心特性包括：</p>
+<ul>
+<li><strong>IoC容器</strong>：Spring通过控制反转实现了对象的创建和对象间的依赖关系管理。开发者只需要定义好Bean及其依赖关系，Spring容器负责创建和组装这些对象。</li>
+<li><strong>AOP</strong>：面向切面编程，允许开发者定义横切关注点，例如事务管理、安全控制等，独立于业务逻辑的代码。通过AOP，可以将这些关注点模块化，提高代码的可维护性和可重用性。</li>
+<li><strong>事务管理</strong>：Spring提供了一致的事务管理接口，支持声明式和编程式事务。开发者可以轻松地进行事务管理，而无需关心具体的事务API。</li>
+<li><strong>MVC框架</strong>：Spring MVC是一个基于Servlet API构建的Web框架，采用了模型-视图-控制器（MVC）架构。它支持灵活的URL到页面控制器的映射，以及多种视图技术。</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/09/17/boilerplate-answers-5-java-spring/#more" rel="contents">
@@ -575,84 +581,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><h2 id="1-介绍一下-JVM-的内存模型"><a href="#1-介绍一下-JVM-的内存模型" class="headerlink" title="1# 介绍一下 JVM 的内存模型"></a>1# 介绍一下 JVM 的内存模型</h2><p>在 JDK 8 中，JVM 的运行时内存主要分为以下几个部分：程序计数器、虚拟机栈、本地方法栈、堆、方法区（元空间），以及不属于规范规定但常用的直接内存。</p>
-<ul>
-<li><strong>程序计数器</strong>：可以看作是当前线程所执行的字节码的行号指示器，用于存储当前线程正在执行的 Java 方法的 JVM 指令地址。如果线程执行的是 Native 方法，计数器值为 null。是唯一一个在 Java 虚拟机规范中没有规定任何 <code>OutOfMemoryError</code> 情况的区域，生命周期与线程相同。</li>
-<li><strong>Java 虚拟机栈</strong>：每个线程都有自己独立的 Java 虚拟机栈，生命周期与线程相同。每个方法在执行时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。可能会抛出 <code>StackOverflowError</code> 和 <code>OutOfMemoryError</code> 异常。</li>
-<li><strong>本地方法栈</strong>：与 Java 虚拟机栈类似，主要为虚拟机使用到的 Native 方法服务，在 HotSpot 虚拟机中和 Java 虚拟机栈合二为一。本地方法执行时也会创建栈帧，同样可能出现 <code>StackOverflowError</code> 和 <code>OutOfMemoryError</code> 两种错误。</li>
-<li><strong>Java 堆</strong>：是 JVM 中最大的一块内存区域，被所有线程共享，在虚拟机启动时创建，用于存放对象实例。从内存回收角度，堆被划分为新生代和老年代，新生代又分为 Eden 区和两个 Survivor 区（From Survivor 和 To Survivor）。如果在堆中没有内存完成实例分配，并且堆也无法扩展时会抛出 <code>OutOfMemoryError</code> 异常。</li>
-<li><strong>方法区（元空间）</strong>：在 JDK 1.8 及以后的版本中，方法区被元空间取代，使用本地内存。用于存储已被虚拟机加载的类信息、常量、静态变量等数据。虽然方法区被描述为堆的逻辑部分，但有 “非堆” 的别名。方法区可以选择不实现垃圾收集，内存不足时会抛出 <code>OutOfMemoryError</code> 异常。</li>
-<li><strong>运行时常量池</strong>：是方法区的一部分，用于存放编译期生成的各种字面量和符号引用，具有动态性，运行时也可将新的常量放入池中。当无法申请到足够内存时，会抛出 <code>OutOfMemoryError</code> 异常。</li>
-<li><strong>直接内存</strong>：不属于 JVM 运行时数据区的一部分，通过 NIO 类引入，是一种堆外内存，可以显著提高 I&#x2F;O 性能。直接内存的使用受到本机总内存的限制，若分配不当，可能导致 <code>OutOfMemoryError</code> 异常。</li>
-</ul>
-<h1 id="类初始化和类加载"><a href="#类初始化和类加载" class="headerlink" title="类初始化和类加载"></a>类初始化和类加载</h1><h2 id="1-创建对象的过程？"><a href="#1-创建对象的过程？" class="headerlink" title="1# 创建对象的过程？"></a>1# 创建对象的过程？</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1713516384566-e820b967-73ce-49a4-a6e6-36af9a38ebc4.webp" alt="img">在Java中创建对象的过程包括以下几个步骤：</p>
-<ol>
-<li><strong>类加载检查</strong>：虚拟机遇到一条 new 指令时，首先将去检查这个指令的参数是否能在<strong>常量池</strong>中定位到一个类的<strong>符号引用</strong>，并且检查这个符号引用代表的类是否已被<strong>加载过、解析和初始化</strong>过。如果没有，那必须先执行相应的<strong>类加载过程</strong>。</li>
-<li><strong>分配内存</strong>：在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需的<strong>内存大小</strong>在<strong>类加载</strong>完成后便可确定，为对象分配空间的任务等同于把一块确定大小的内存从 Java 堆中划分出来。</li>
-<li><strong>初始化零值</strong>：内存分配完成后，虚拟机需要将分配到的内存空间都初始化为零值（不包括对象头），这一步操作保证了对象的实例字段在 Java 代码中可以不赋初始值就直接使用，程序能访问到这些字段的数据类型所对应的零值。</li>
-<li><strong>进行必要设置，比如对象头</strong>：初始化零值完成之后，虚拟机要对对象进行<strong>必要的设置</strong>，例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的 GC 分代年龄等信息。这些信息存放在<strong>对象头</strong>中。另外，根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</li>
-<li><strong>执行 init 方法</strong>：在上面工作都完成之后，从虚拟机的视角来看，一个新的对象已经产生了，但从 Java 程序的视角来看，对象创建才刚开始——构造函数，即class文件中的方法还没有执行，所有的字段都还为零，<strong>对象需要的其他资源和状态信息</strong>还没有按照预定的意图构造好。所以一般来说，执行 new 指令之后会接着执行方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完全被构造出来。</li>
-</ol>
-<h2 id="2-讲一下类加载过程？"><a href="#2-讲一下类加载过程？" class="headerlink" title="2# 讲一下类加载过程？"></a>2# 讲一下类加载过程？</h2><p>类从被加载到虚拟机内存开始，到卸载出内存为止，它的整个生命周期包括以下 7 个阶段：</p>
-<p><img src="https://cdn.xiaolincoding.com//picgo/1719491354969-a7c861d7-531e-45d3-a4aa-4696710ec297.webp" alt="类加载过程"></p>
-<ul>
-<li><p><strong>加载</strong>：通过类的全限定名（包名 + 类名），获取到该类的.class文件的二进制字节流，将二进制字节流所代表的静态存储结构，转化为方法区运行时的数据结构，在内存中生成一个代表该类的 Java.lang.Class 对象，作为方法区这个类的各种数据的访问入口</p>
-</li>
-<li><p>连接</p>
-<p>：验证、准备、解析 3 个阶段统称为连接。</p>
-<ul>
-<li><strong>验证</strong>：确保class文件中的字节流包含的信息，符合当前虚拟机的要求，保证这个被加载的class类的正确性，不会危害到虚拟机的安全。验证阶段大致会完成以下四个阶段的检验动作：文件格式校验、元数据验证、字节码验证、符号引用验证</li>
-<li><strong>准备</strong>：为类中的静态字段分配内存，并设置默认的初始值，比如int类型初始值是0。被final修饰的static字段不会设置，因为final在编译的时候就分配了</li>
-<li><strong>解析</strong>：解析阶段是虚拟机将常量池的「符号引用」直接替换为「直接引用」的过程。符号引用是以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用的时候可以无歧义地定位到目标即可。直接引用可以是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄，直接引用是和虚拟机实现的内存布局相关的。如果有了直接引用， 那引用的目标必定已经存在在内存中了。</li>
-</ul>
-</li>
-<li><p><strong>初始化</strong>：初始化是整个类加载过程的最后一个阶段，初始化阶段简单来说就是执行类的构造器方法（() ），要注意的是这里的构造器方法()并不是开发者写的，而是编译器自动生成的。</p>
-</li>
-<li><p><strong>使用</strong>：使用类或者创建对象</p>
-</li>
-<li><p>卸载：一个类要被JVM卸载，条件非常苛刻，</p>
-<p>需要同时满足以下三点：</p>
-<ul>
-<li><strong>该类所有的实例都已经被回收</strong>：这是最显而易见的前提。如果堆中还存在这个类的任何一个实例对象，那么定义这个对象的Class对象肯定不能被卸载。</li>
-<li><strong>加载该类的 ClassLoader 已经被回收</strong>：这是<strong>最关键也是最难满足的条件</strong>。类与其加载器是双向绑定的共生关系。一个类由哪个类加载器加载，这个信息是存储在Class对象里的。要卸载一个类，必须先卸载加载它的类加载器。</li>
-<li><strong>类对应的 Java.lang.Class 对象没有任何地方被引用</strong>：不能在任何地方通过反射（如静态字段、全局变量）、静态变量、JNI等途径引用到这个Class对象。一旦这个Class对象还存在强引用，GC就不会回收它，那么这个类也就不会被卸载。</li>
-</ul>
-</li>
-</ul>
-<h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><h2 id="1-垃圾回收是什么？如何触发垃圾回收？"><a href="#1-垃圾回收是什么？如何触发垃圾回收？" class="headerlink" title="1# 垃圾回收是什么？如何触发垃圾回收？"></a>1# 垃圾回收是什么？如何触发垃圾回收？</h2><p>垃圾回收是 JVM 提供的一种 <strong>自动内存管理机制</strong>。它会自动识别并释放程序中 <strong>不再被引用的对象</strong> 所占用的堆内存，从而避免内存泄漏和手动管理内存带来的错误。<br> 换句话说，GC 的作用就是让开发者不用像 C&#x2F;C++ 那样手动释放内存，而是把内存清理工作交给 JVM 来完成。</p>
-<p><strong>垃圾回收的触发时机</strong></p>
-<ol>
-<li><strong>内存不足</strong>：当 JVM 检测到堆空间不足以分配新对象时，会自动触发垃圾回收。</li>
-<li><strong>手动请求</strong>：开发者可以调用 <code>System.gc()</code> 或 <code>Runtime.getRuntime().gc()</code> 来“建议”JVM 执行垃圾回收。但这只是建议，是否立即执行取决于 JVM。</li>
-<li><strong>JVM 参数控制</strong>：运行应用时可以通过参数（如 <code>-Xmx</code> 设置最大堆大小，<code>-Xms</code> 设置初始堆大小）来影响垃圾回收的频率和行为。</li>
-<li><strong>内部策略</strong>：垃圾收集器内部会根据对象创建速率、内存使用情况等设定阈值，当条件达到时触发回收。</li>
-</ol>
-<p><strong>如何判断对象是垃圾？</strong></p>
-<p>JVM 需要判断哪些对象已经“不可达”，从而可以被回收。常见的两种方法是：</p>
-<ol>
-<li><strong>引用计数法（Reference Counting）</strong></li>
-</ol>
-<ul>
-<li><strong>原理</strong>：为对象维护一个引用计数器，每当有一个引用指向它时计数 +1，引用失效时计数 -1。当计数变为 0 时，对象被认为不再可用，可以回收。</li>
-<li><strong>缺点</strong>：无法处理循环引用。例如对象 A 引用 B，B 又引用 A，但它们已经不再被其他地方使用时，引用计数仍大于 0，导致无法被回收。</li>
-</ul>
-<ol start="2">
-<li><strong>可达性分析算法（Reachability Analysis）</strong></li>
-</ol>
-<p>这是 <strong>Java 虚拟机主要采用的垃圾判断方式</strong>。</p>
-<ul>
-<li><strong>原理</strong>：从一组被称为 <strong>GC Roots</strong> 的对象出发，沿着引用链向下搜索，能被 GC Roots 直接或间接关联到的对象都是“存活的”。如果某个对象和 GC Roots 之间没有任何引用链相连，则被视为“不可达”，可以被回收。</li>
-<li><strong>GC Roots 包括</strong>：<ul>
-<li>虚拟机栈（栈帧中本地变量表）中的引用对象</li>
-<li>方法区中类的静态属性引用的对象</li>
-<li>本地方法栈中 JNI（Native 方法）引用的对象</li>
-<li>活跃线程对象</li>
-</ul>
-</li>
-</ul>
-
+          <h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><h2 id="1-介绍一下-JVM-的内存模型"><a href="#1-介绍一下-JVM-的内存模型" class="headerlink" title="1# 介绍一下 JVM 的内存模型"></a>1# 介绍一下 JVM 的内存模型</h2><p>在 JDK 8 中，JVM 的运行时内存主要分为以下几个部分：程序计数器、虚拟机栈、本地方法栈、堆、方法区（元空间），以及不属于规范规定但常用的直接内存。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/09/11/boilerplate-answers-4-java-jvm/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -846,7 +783,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1-Java-的线程和操作系统的线程一样吗？"><a href="#1-Java-的线程和操作系统的线程一样吗？" class="headerlink" title="1# Java 的线程和操作系统的线程一样吗？"></a>1# Java 的线程和操作系统的线程一样吗？</h2><p>是的，Java 中的线程本质上与操作系统的线程是一致的</p>
-<img src="https://cdn.xiaolincoding.com//picgo/image-20240725230425385.png" alt="Java 线程" style="zoom: 25%;" />
+<p>在现代 JVM（如 HotSpot）中，Java 使用的是 <strong>一对一的线程模型</strong>，即每创建一个 Java 线程，JVM 底层都会调用操作系统的 API（如 Linux 下的 <code>pthread_create</code>）来创建一个 <strong>原生线程</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/07/03/boilerplate-answers-3-java-concurrent/#more" rel="contents">

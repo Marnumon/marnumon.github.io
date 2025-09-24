@@ -297,9 +297,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><span id="more"></span>
+    <div class="post-body" itemprop="articleBody"><h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><h2 id="1-介绍一下-JVM-的内存模型"><a href="#1-介绍一下-JVM-的内存模型" class="headerlink" title="1# 介绍一下 JVM 的内存模型"></a>1# 介绍一下 JVM 的内存模型</h2><p>在 JDK 8 中，JVM 的运行时内存主要分为以下几个部分：程序计数器、虚拟机栈、本地方法栈、堆、方法区（元空间），以及不属于规范规定但常用的直接内存。</p>
+<span id="more"></span>
 
-<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><h2 id="1-介绍一下-JVM-的内存模型"><a href="#1-介绍一下-JVM-的内存模型" class="headerlink" title="1# 介绍一下 JVM 的内存模型"></a>1# 介绍一下 JVM 的内存模型</h2><p>在 JDK 8 中，JVM 的运行时内存主要分为以下几个部分：程序计数器、虚拟机栈、本地方法栈、堆、方法区（元空间），以及不属于规范规定但常用的直接内存。</p>
 <ul>
 <li><strong>程序计数器</strong>：可以看作是当前线程所执行的字节码的行号指示器，用于存储当前线程正在执行的 Java 方法的 JVM 指令地址。如果线程执行的是 Native 方法，计数器值为 null。是唯一一个在 Java 虚拟机规范中没有规定任何 <code>OutOfMemoryError</code> 情况的区域，生命周期与线程相同。</li>
 <li><strong>Java 虚拟机栈</strong>：每个线程都有自己独立的 Java 虚拟机栈，生命周期与线程相同。每个方法在执行时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。可能会抛出 <code>StackOverflowError</code> 和 <code>OutOfMemoryError</code> 异常。</li>

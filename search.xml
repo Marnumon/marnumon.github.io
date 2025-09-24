@@ -1568,11 +1568,11 @@
     <title>八股文笔记 #3 Java 并发</title>
     <url>/2025/07/03/boilerplate-answers-3-java-concurrent/</url>
     <content><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1-Java-的线程和操作系统的线程一样吗？"><a href="#1-Java-的线程和操作系统的线程一样吗？" class="headerlink" title="1# Java 的线程和操作系统的线程一样吗？"></a>1# Java 的线程和操作系统的线程一样吗？</h2><p>是的，Java 中的线程本质上与操作系统的线程是一致的</p>
-<img src="https://cdn.xiaolincoding.com//picgo/image-20240725230425385.png" alt="Java 线程" style="zoom: 25%;" />
-
+<p>在现代 JVM（如 HotSpot）中，Java 使用的是 <strong>一对一的线程模型</strong>，即每创建一个 Java 线程，JVM 底层都会调用操作系统的 API（如 Linux 下的 <code>pthread_create</code>）来创建一个 <strong>原生线程</strong></p>
 <span id="more"></span>
 
-<p>在现代 JVM（如 HotSpot）中，Java 使用的是 <strong>一对一的线程模型</strong>，即每创建一个 Java 线程，JVM 底层都会调用操作系统的 API（如 Linux 下的 <code>pthread_create</code>）来创建一个 <strong>原生线程</strong></p>
+<img src="https://cdn.xiaolincoding.com//picgo/image-20240725230425385.png" alt="Java 线程" style="zoom: 25%;" />
+
 <p>因此，Java 线程与操作系统线程是 <strong>一一对应</strong> 的，拥有独立的调用栈、程序计数器等资源，由操作系统负责调度和管理</p>
 <p>这种设计使得 Java 能够充分利用多核 CPU 的并发能力，同时也意味着 Java 线程的性能和行为，受到操作系统线程调度策略的影响</p>
 <h2 id="2-使用多线程要注意哪些问题？"><a href="#2-使用多线程要注意哪些问题？" class="headerlink" title="2# 使用多线程要注意哪些问题？"></a>2# 使用多线程要注意哪些问题？</h2><p>在使用多线程编程时，最关键的是确保<strong>线程安全</strong>，避免由于<strong>数据竞争</strong>导致的数据不一致、程序行为异常等问题</p>
@@ -3135,9 +3135,9 @@
   <entry>
     <title>八股文笔记 #4 Java JVM</title>
     <url>/2025/09/11/boilerplate-answers-4-java-jvm/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><h2 id="1-介绍一下-JVM-的内存模型"><a href="#1-介绍一下-JVM-的内存模型" class="headerlink" title="1# 介绍一下 JVM 的内存模型"></a>1# 介绍一下 JVM 的内存模型</h2><p>在 JDK 8 中，JVM 的运行时内存主要分为以下几个部分：程序计数器、虚拟机栈、本地方法栈、堆、方法区（元空间），以及不属于规范规定但常用的直接内存。</p>
+<span id="more"></span>
 
-<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><h2 id="1-介绍一下-JVM-的内存模型"><a href="#1-介绍一下-JVM-的内存模型" class="headerlink" title="1# 介绍一下 JVM 的内存模型"></a>1# 介绍一下 JVM 的内存模型</h2><p>在 JDK 8 中，JVM 的运行时内存主要分为以下几个部分：程序计数器、虚拟机栈、本地方法栈、堆、方法区（元空间），以及不属于规范规定但常用的直接内存。</p>
 <ul>
 <li><strong>程序计数器</strong>：可以看作是当前线程所执行的字节码的行号指示器，用于存储当前线程正在执行的 Java 方法的 JVM 指令地址。如果线程执行的是 Native 方法，计数器值为 null。是唯一一个在 Java 虚拟机规范中没有规定任何 <code>OutOfMemoryError</code> 情况的区域，生命周期与线程相同。</li>
 <li><strong>Java 虚拟机栈</strong>：每个线程都有自己独立的 Java 虚拟机栈，生命周期与线程相同。每个方法在执行时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。可能会抛出 <code>StackOverflowError</code> 和 <code>OutOfMemoryError</code> 异常。</li>
@@ -3224,16 +3224,16 @@
   <entry>
     <title>八股文笔记 #5 Java Spring</title>
     <url>/2025/09/17/boilerplate-answers-5-java-spring/</url>
-    <content><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="1-说一下你对-Spring-的理解"><a href="#1-说一下你对-Spring-的理解" class="headerlink" title="1# 说一下你对 Spring 的理解"></a>1# 说一下你对 Spring 的理解</h2><p><img src="https://cdn.xiaolincoding.com//picgo/1712650311366-b499469c-5afd-4be9-bad3-d787de86bf98.png" alt="img"></p>
-<span id="more"></span>
-
-<p>Spring框架核心特性包括：</p>
+    <content><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="1-说一下你对-Spring-的理解"><a href="#1-说一下你对-Spring-的理解" class="headerlink" title="1# 说一下你对 Spring 的理解"></a>1# 说一下你对 Spring 的理解</h2><p>Spring框架核心特性包括：</p>
 <ul>
 <li><strong>IoC容器</strong>：Spring通过控制反转实现了对象的创建和对象间的依赖关系管理。开发者只需要定义好Bean及其依赖关系，Spring容器负责创建和组装这些对象。</li>
 <li><strong>AOP</strong>：面向切面编程，允许开发者定义横切关注点，例如事务管理、安全控制等，独立于业务逻辑的代码。通过AOP，可以将这些关注点模块化，提高代码的可维护性和可重用性。</li>
 <li><strong>事务管理</strong>：Spring提供了一致的事务管理接口，支持声明式和编程式事务。开发者可以轻松地进行事务管理，而无需关心具体的事务API。</li>
 <li><strong>MVC框架</strong>：Spring MVC是一个基于Servlet API构建的Web框架，采用了模型-视图-控制器（MVC）架构。它支持灵活的URL到页面控制器的映射，以及多种视图技术。</li>
 </ul>
+<span id="more"></span>
+
+<p><img src="https://cdn.xiaolincoding.com//picgo/1712650311366-b499469c-5afd-4be9-bad3-d787de86bf98.png" alt="img"></p>
 <h2 id="2-Spring-是怎么管理对象的？"><a href="#2-Spring-是怎么管理对象的？" class="headerlink" title="2# Spring 是怎么管理对象的？"></a>2# Spring 是怎么管理对象的？</h2><ul>
 <li>核心是 <strong>IoC（控制反转）容器</strong>，由 <code>ApplicationContext</code> 管理对象（Bean）。</li>
 <li>Spring 负责对象的：<strong>创建 → 初始化 → 生命周期管理 → 销毁</strong>。</li>
